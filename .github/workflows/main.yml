@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [develop]
+    
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run a one-line script
+        run: echo Hello World!
+        
+      - name: Run Tests
+        run: | 
+          xcodebuild test -project "$XC_PROJECT" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 13'
