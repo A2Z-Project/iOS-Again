@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "682665_favicon_google_logo_new_icon (1).png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "682665_favicon_google_logo_new_icon (2).png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "682665_favicon_google_logo_new_icon (3).png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

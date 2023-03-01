@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>693185516985-86m01q222brkhdbggjjuir7fqghnbann.apps.googleusercontent.com</string>
+	<string>693185516985-ivj7vm64mrjfopnhpe2aose6efvtqrnd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.693185516985-86m01q222brkhdbggjjuir7fqghnbann</string>
+	<string>com.googleusercontent.apps.693185516985-ivj7vm64mrjfopnhpe2aose6efvtqrnd</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD5NqjWSJpq9VDZ7YHYtm178MM86vlwy68</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ddang.again</string>
+	<string>com.DDang.iOS-Again</string>
 	<key>PROJECT_ID</key>
 	<string>ddang-again</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:693185516985:ios:ff4da0058ade561bdbd268</string>
+	<string>1:693185516985:ios:997c8b0a5786e03cdbd268</string>
 </dict>
 </plist>
