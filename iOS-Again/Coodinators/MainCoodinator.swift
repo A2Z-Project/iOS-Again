@@ -10,7 +10,7 @@ class MainCoodinator: Coodinator {
     }
     
     func start() {
-        let viewController = UITabBarController()
+        let viewController = MainViewController()
         
         let feedCoodinator = FeedCoodinator(navigationController: navigationController)
         let firstGroupCoodinator = FeedCoodinator(navigationController: navigationController)
@@ -31,7 +31,14 @@ class MainCoodinator: Coodinator {
             profileCoodinator.setupTabBarItem()
         ]
         
+        viewController.viewControllerDelegate = self
         viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension MainCoodinator: MainViewControllerDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
     }
 }

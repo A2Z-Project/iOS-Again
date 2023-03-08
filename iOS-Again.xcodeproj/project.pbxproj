@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8513B24329B847C5000FE8DD /* MainCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24229B847C5000FE8DD /* MainCoodinator.swift */; };
+		8513B24529B88DAC000FE8DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24429B88DAC000FE8DD /* MainViewController.swift */; };
 		853B65BE29ADE50A005A5B34 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BD29ADE50A005A5B34 /* UILabel.swift */; };
 		853B65C029ADE714005A5B34 /* Snapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BF29ADE714005A5B34 /* Snapkit.swift */; };
 		853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C129ADFF65005A5B34 /* UIButton.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		8513B24229B847C5000FE8DD /* MainCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoodinator.swift; sourceTree = "<group>"; };
+		8513B24429B88DAC000FE8DD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		853B65BD29ADE50A005A5B34 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		853B65BF29ADE714005A5B34 /* Snapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapkit.swift; sourceTree = "<group>"; };
 		853B65C129ADFF65005A5B34 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
 				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
 				853B65EE29B0BC88005A5B34 /* FeedViewController.swift */,
+				8513B24429B88DAC000FE8DD /* MainViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				853B65C829AE02E6005A5B34 /* AppCoodinator.swift in Sources */,
 				85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */,
 				853B65ED29B093C2005A5B34 /* UserRegisterationModel.swift in Sources */,
+				8513B24529B88DAC000FE8DD /* MainViewController.swift in Sources */,
 				853C7FEE29A8F49C00A889A9 /* UIViewController.swift in Sources */,
 				853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */,
 				853B65D429AF0935005A5B34 /* UITextField.swift in Sources */,
