@@ -41,7 +41,6 @@
 		853C7FFD29AACE2C00A889A9 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FF329A93D6100A889A9 /* NotoSansKR-Light.otf */; };
 		853C7FFE29AACE2C00A889A9 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FEF29A93D6000A889A9 /* NotoSansKR-Bold.otf */; };
 		853C800029AB973800A889A9 /* AGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FFF29AB973800A889A9 /* AGButton.swift */; };
-		857AE65229B62BFE00436BDC /* AGTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857AE65129B62BFE00436BDC /* AGTabBar.swift */; };
 		85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85914E0629B2F94E003BF4DC /* AGHeader.swift */; };
 		85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA52982DC1F008B0148 /* AppDelegate.swift */; };
 		85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA72982DC1F008B0148 /* SceneDelegate.swift */; };
@@ -88,7 +87,6 @@
 		853C7FF529AAB41500A889A9 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		853C7FF729AAC3D600A889A9 /* AllertaStencil-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AllertaStencil-Regular.ttf"; sourceTree = "<group>"; };
 		853C7FFF29AB973800A889A9 /* AGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGButton.swift; sourceTree = "<group>"; };
-		857AE65129B62BFE00436BDC /* AGTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTabBar.swift; sourceTree = "<group>"; };
 		85914E0629B2F94E003BF4DC /* AGHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGHeader.swift; sourceTree = "<group>"; };
 		85E73AA22982DC1F008B0148 /* iOS-Again.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Again.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E73AA52982DC1F008B0148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 				853B65D529AF0BD1005A5B34 /* AGDivideLine.swift */,
 				853B65DC29AF4E7C005A5B34 /* AGBackButton.swift */,
 				85914E0629B2F94E003BF4DC /* AGHeader.swift */,
-				857AE65129B62BFE00436BDC /* AGTabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -362,7 +359,6 @@
 				853B65C429AE016D005A5B34 /* SigninViewController.swift in Sources */,
 				853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */,
 				85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */,
-				857AE65229B62BFE00436BDC /* AGTabBar.swift in Sources */,
 				853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */,
 				853B65EF29B0BC88005A5B34 /* MainViewController.swift in Sources */,
 				853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */,

@@ -12,7 +12,6 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     let header = AGHeader()
-    let tabBar = AGTabBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +23,11 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     func configureLayout() {
-        [header, tabBar].forEach { self.view.addSubview($0) }
+        [header].forEach { self.view.addSubview($0) }
         
         header.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.horizontalPaddingToSuperView(0)
-        }
-        
-        tabBar.snp.makeConstraints { make in
-            make.height.equalTo(80)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-10)
-            make.horizontalPaddingToSuperView(15)
         }
     }
     
