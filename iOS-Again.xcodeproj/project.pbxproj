@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8513B24329B847C5000FE8DD /* MainCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24229B847C5000FE8DD /* MainCoodinator.swift */; };
 		8513B24529B88DAC000FE8DD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24429B88DAC000FE8DD /* MainViewController.swift */; };
+		8513B24729B895AA000FE8DD /* AGFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24629B895AA000FE8DD /* AGFeedItem.swift */; };
 		853B65BE29ADE50A005A5B34 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BD29ADE50A005A5B34 /* UILabel.swift */; };
 		853B65C029ADE714005A5B34 /* Snapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BF29ADE714005A5B34 /* Snapkit.swift */; };
 		853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C129ADFF65005A5B34 /* UIButton.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		8513B24229B847C5000FE8DD /* MainCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoodinator.swift; sourceTree = "<group>"; };
 		8513B24429B88DAC000FE8DD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8513B24629B895AA000FE8DD /* AGFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGFeedItem.swift; sourceTree = "<group>"; };
 		853B65BD29ADE50A005A5B34 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		853B65BF29ADE714005A5B34 /* Snapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapkit.swift; sourceTree = "<group>"; };
 		853B65C129ADFF65005A5B34 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				853B65D529AF0BD1005A5B34 /* AGDivideLine.swift */,
 				853B65DC29AF4E7C005A5B34 /* AGBackButton.swift */,
 				85914E0629B2F94E003BF4DC /* AGHeader.swift */,
+				8513B24629B895AA000FE8DD /* AGFeedItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */,
 				853B65D429AF0935005A5B34 /* UITextField.swift in Sources */,
 				85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */,
+				8513B24729B895AA000FE8DD /* AGFeedItem.swift in Sources */,
 				853B65DD29AF4E7C005A5B34 /* AGBackButton.swift in Sources */,
 				853B65C429AE016D005A5B34 /* SigninViewController.swift in Sources */,
 				853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */,

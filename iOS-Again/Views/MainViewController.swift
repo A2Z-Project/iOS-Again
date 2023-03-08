@@ -6,10 +6,6 @@ protocol MainViewControllerDelegate {
 
 class MainViewController: UITabBarController {
     var viewControllerDelegate: MainViewControllerDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 extension MainViewController: UITabBarControllerDelegate {
