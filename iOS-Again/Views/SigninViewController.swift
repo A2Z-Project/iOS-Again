@@ -6,6 +6,7 @@ import RxCocoa
 
 protocol SigninViewControllerDelegate {
     func dismiss()
+    func login()
 }
 
 class SigninViewController: UIViewController {
@@ -13,10 +14,28 @@ class SigninViewController: UIViewController {
     var delegate: SigninViewControllerDelegate?
     let disposeBag = DisposeBag()
     
+    let stackView: UIStackView = {
+        let sv = UIStackView()
+
+        sv.axis = .vertical
+        sv.spacing = 10
+        
+        return sv
+    }()
+    let backButtonLayout: UIStackView = {
+        let sv = UIStackView()
+        
+        sv.axis = .vertical
+        sv.alignment = .leading
+        
+        return sv
+    }()
     let backButton = AGBackButton()
     let topBar = AGTopBar(title: "로그인", subTitle: "로그인 방법을 선택해주세요")
-    let accountForm = AGAccountForm(.login)
-    let divideLine = AGDivideLine("SNS 로그인")
+    let idTextField = AGTextField(title: "E-mail", placeholder: "이메일을 입력해주세요.")
+    let passwordTextField = AGTextField(title: "비밀번호", placeholder: "비밀번호를 입력해주세요. (8자 이상, 영어와 숫자 혼용)")
+    let loginButton = AGButton(title: "로그인하기")
+    let divideLine = AGDivideLine()
     let googleLoginButton = AGSnsAccountButton(.Google, usageType: .signin)
     let appleLoginButton = AGSnsAccountButton(.Apple, usageType: .signin)
     
@@ -30,36 +49,12 @@ class SigninViewController: UIViewController {
 
 private extension SigninViewController {
     func configureLayout() {
-        [backButton, topBar, accountForm, divideLine, googleLoginButton, appleLoginButton].forEach { self.view.addSubview($0) }
+        backButtonLayout.addArrangedSubview(backButton)
+        [backButtonLayout, topBar, idTextField, passwordTextField, loginButton, divideLine, googleLoginButton, appleLoginButton].forEach { stackView.addArrangedSubview($0) }
+        self.view.addSubview(stackView)
         
-        backButton.snp.makeConstraints { make in
+        stackView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(5)
-            make.leading.equalToSuperview().offset(15)
-        }
-        
-        topBar.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(20)
-            make.horizontalPaddingToSuperView(15)
-        }
-        
-        accountForm.snp.makeConstraints { make in
-            make.top.equalTo(topBar.snp.bottom).offset(20)
-            make.horizontalPaddingToSuperView(15)
-        }
-        
-        divideLine.snp.makeConstraints { make in
-            make.top.equalTo(accountForm.snp.bottom).offset(20)
-            make.horizontalPaddingToSuperView(15)
-            make.height.equalTo(25)
-        }
-        
-        googleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(divideLine.snp.bottom).offset(20)
-            make.horizontalPaddingToSuperView(15)
-        }
-        
-        appleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(googleLoginButton.snp.bottom).offset(10)
             make.horizontalPaddingToSuperView(15)
         }
     }
@@ -68,6 +63,11 @@ private extension SigninViewController {
         backButton.rx.tap
             .bind {
                 self.delegate?.dismiss()
+            }.disposed(by: disposeBag)
+        
+        loginButton.rx.tap
+            .bind {
+                self.delegate?.login()
             }.disposed(by: disposeBag)
     }
 }

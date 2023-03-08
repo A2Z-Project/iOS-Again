@@ -81,7 +81,7 @@ class RootViewController: UIViewController, UITextViewDelegate {
         return button
     }()
     let signupButton: UIButton = {
-        let button = AGButton(title: "회원 가입")
+        let button = AGButton(title: "회원가입")
         
         button.snp.makeConstraints { make in
             make.height.equalTo(50)

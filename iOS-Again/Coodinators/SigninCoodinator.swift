@@ -2,6 +2,7 @@ import UIKit
 
 protocol SigninCoodinatorDelegate {
     func didDismissSigninViewController(_ coodinator: SigninCoodinator)
+    func didLoggedIn(_ coodinator: SigninCoodinator)
 }
 
 class SigninCoodinator: Coodinator, SigninViewControllerDelegate {
@@ -26,5 +27,10 @@ class SigninCoodinator: Coodinator, SigninViewControllerDelegate {
     func dismiss() {
         self.navigationController.popViewController(animated: true)
         self.delegate?.didDismissSigninViewController(self)
+    }
+    
+    func login() {
+        self.navigationController.popViewController(animated: true)
+        self.delegate?.didLoggedIn(self)
     }
 }

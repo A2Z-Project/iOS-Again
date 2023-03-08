@@ -17,7 +17,6 @@
 		853B65CC29AE4BC4005A5B34 /* SigninCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65CB29AE4BC4005A5B34 /* SigninCoodinator.swift */; };
 		853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65CD29AE4C86005A5B34 /* AGTopBar.swift */; };
 		853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65CF29AEFF3C005A5B34 /* AGTextField.swift */; };
-		853B65D229AF0320005A5B34 /* AGAccoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65D129AF0320005A5B34 /* AGAccoutForm.swift */; };
 		853B65D429AF0935005A5B34 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65D329AF0935005A5B34 /* UITextField.swift */; };
 		853B65D629AF0BD1005A5B34 /* AGDivideLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65D529AF0BD1005A5B34 /* AGDivideLine.swift */; };
 		853B65D929AF47D4005A5B34 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 853B65D829AF47D4005A5B34 /* RxCocoa */; };
@@ -25,6 +24,13 @@
 		853B65DD29AF4E7C005A5B34 /* AGBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65DC29AF4E7C005A5B34 /* AGBackButton.swift */; };
 		853B65E129AF6AC7005A5B34 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E029AF6AC7005A5B34 /* SignupViewController.swift */; };
 		853B65E329AFE652005A5B34 /* SignupCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E229AFE652005A5B34 /* SignupCoodinator.swift */; };
+		853B65E529B00D60005A5B34 /* SignupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */; };
+		853B65E729B0120E005A5B34 /* SignupDetailCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */; };
+		853B65E929B01CF4005A5B34 /* SignupAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */; };
+		853B65EB29B0908B005A5B34 /* SignupAccountCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */; };
+		853B65ED29B093C2005A5B34 /* UserRegisterationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */; };
+		853B65EF29B0BC88005A5B34 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EE29B0BC88005A5B34 /* MainViewController.swift */; };
+		853B65F129B0C33A005A5B34 /* MainCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65F029B0C33A005A5B34 /* MainCoodinator.swift */; };
 		853C7FEE29A8F49C00A889A9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FED29A8F49C00A889A9 /* UIViewController.swift */; };
 		853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FF529AAB41500A889A9 /* UIFont.swift */; };
 		853C7FF829AACE2C00A889A9 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FF229A93D6100A889A9 /* NotoSansKR-Thin.otf */; };
@@ -35,6 +41,8 @@
 		853C7FFD29AACE2C00A889A9 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FF329A93D6100A889A9 /* NotoSansKR-Light.otf */; };
 		853C7FFE29AACE2C00A889A9 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FEF29A93D6000A889A9 /* NotoSansKR-Bold.otf */; };
 		853C800029AB973800A889A9 /* AGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FFF29AB973800A889A9 /* AGButton.swift */; };
+		857AE65229B62BFE00436BDC /* AGTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857AE65129B62BFE00436BDC /* AGTabBar.swift */; };
+		85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85914E0629B2F94E003BF4DC /* AGHeader.swift */; };
 		85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA52982DC1F008B0148 /* AppDelegate.swift */; };
 		85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA72982DC1F008B0148 /* SceneDelegate.swift */; };
 		85E73AAA2982DC1F008B0148 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA92982DC1F008B0148 /* RootViewController.swift */; };
@@ -58,12 +66,18 @@
 		853B65CB29AE4BC4005A5B34 /* SigninCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoodinator.swift; sourceTree = "<group>"; };
 		853B65CD29AE4C86005A5B34 /* AGTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTopBar.swift; sourceTree = "<group>"; };
 		853B65CF29AEFF3C005A5B34 /* AGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTextField.swift; sourceTree = "<group>"; };
-		853B65D129AF0320005A5B34 /* AGAccoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGAccoutForm.swift; sourceTree = "<group>"; };
 		853B65D329AF0935005A5B34 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		853B65D529AF0BD1005A5B34 /* AGDivideLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDivideLine.swift; sourceTree = "<group>"; };
 		853B65DC29AF4E7C005A5B34 /* AGBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGBackButton.swift; sourceTree = "<group>"; };
 		853B65E029AF6AC7005A5B34 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		853B65E229AFE652005A5B34 /* SignupCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCoodinator.swift; sourceTree = "<group>"; };
+		853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDetailViewController.swift; sourceTree = "<group>"; };
+		853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDetailCoodinator.swift; sourceTree = "<group>"; };
+		853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountViewController.swift; sourceTree = "<group>"; };
+		853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountCoodinator.swift; sourceTree = "<group>"; };
+		853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterationModel.swift; sourceTree = "<group>"; };
+		853B65EE29B0BC88005A5B34 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		853B65F029B0C33A005A5B34 /* MainCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoodinator.swift; sourceTree = "<group>"; };
 		853C7FED29A8F49C00A889A9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		853C7FEF29A93D6000A889A9 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		853C7FF029A93D6100A889A9 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
@@ -74,6 +88,8 @@
 		853C7FF529AAB41500A889A9 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		853C7FF729AAC3D600A889A9 /* AllertaStencil-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AllertaStencil-Regular.ttf"; sourceTree = "<group>"; };
 		853C7FFF29AB973800A889A9 /* AGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGButton.swift; sourceTree = "<group>"; };
+		857AE65129B62BFE00436BDC /* AGTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTabBar.swift; sourceTree = "<group>"; };
+		85914E0629B2F94E003BF4DC /* AGHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGHeader.swift; sourceTree = "<group>"; };
 		85E73AA22982DC1F008B0148 /* iOS-Again.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Again.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E73AA52982DC1F008B0148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E73AA72982DC1F008B0148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +161,9 @@
 				853B65E029AF6AC7005A5B34 /* SignupViewController.swift */,
 				85E73AA92982DC1F008B0148 /* RootViewController.swift */,
 				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
+				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
+				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
+				853B65EE29B0BC88005A5B34 /* MainViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +171,7 @@
 		85E73AC729839649008B0148 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +190,9 @@
 				853B65C929AE04C3005A5B34 /* RootCoodinator.swift */,
 				853B65CB29AE4BC4005A5B34 /* SigninCoodinator.swift */,
 				853B65E229AFE652005A5B34 /* SignupCoodinator.swift */,
+				853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */,
+				853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */,
+				853B65F029B0C33A005A5B34 /* MainCoodinator.swift */,
 			);
 			path = Coodinators;
 			sourceTree = "<group>";
@@ -208,9 +231,10 @@
 				853C7FFF29AB973800A889A9 /* AGButton.swift */,
 				853B65CD29AE4C86005A5B34 /* AGTopBar.swift */,
 				853B65CF29AEFF3C005A5B34 /* AGTextField.swift */,
-				853B65D129AF0320005A5B34 /* AGAccoutForm.swift */,
 				853B65D529AF0BD1005A5B34 /* AGDivideLine.swift */,
 				853B65DC29AF4E7C005A5B34 /* AGBackButton.swift */,
+				85914E0629B2F94E003BF4DC /* AGHeader.swift */,
+				857AE65129B62BFE00436BDC /* AGTabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,23 +342,31 @@
 				853B65C629AE029C005A5B34 /* Coodinator.swift in Sources */,
 				853B65E129AF6AC7005A5B34 /* SignupViewController.swift in Sources */,
 				853C800029AB973800A889A9 /* AGButton.swift in Sources */,
+				853B65EB29B0908B005A5B34 /* SignupAccountCoodinator.swift in Sources */,
+				853B65F129B0C33A005A5B34 /* MainCoodinator.swift in Sources */,
 				853B65CC29AE4BC4005A5B34 /* SigninCoodinator.swift in Sources */,
 				853B65D629AF0BD1005A5B34 /* AGDivideLine.swift in Sources */,
 				853B65CA29AE04C3005A5B34 /* RootCoodinator.swift in Sources */,
 				853B65C029ADE714005A5B34 /* Snapkit.swift in Sources */,
 				853B65BE29ADE50A005A5B34 /* UILabel.swift in Sources */,
+				853B65E929B01CF4005A5B34 /* SignupAccountViewController.swift in Sources */,
+				853B65E729B0120E005A5B34 /* SignupDetailCoodinator.swift in Sources */,
 				853B65C829AE02E6005A5B34 /* AppCoodinator.swift in Sources */,
 				85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */,
+				853B65ED29B093C2005A5B34 /* UserRegisterationModel.swift in Sources */,
 				853C7FEE29A8F49C00A889A9 /* UIViewController.swift in Sources */,
 				853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */,
 				853B65D429AF0935005A5B34 /* UITextField.swift in Sources */,
 				85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */,
 				853B65DD29AF4E7C005A5B34 /* AGBackButton.swift in Sources */,
 				853B65C429AE016D005A5B34 /* SigninViewController.swift in Sources */,
-				853B65D229AF0320005A5B34 /* AGAccoutForm.swift in Sources */,
 				853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */,
+				85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */,
+				857AE65229B62BFE00436BDC /* AGTabBar.swift in Sources */,
 				853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */,
+				853B65EF29B0BC88005A5B34 /* MainViewController.swift in Sources */,
 				853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */,
+				853B65E529B00D60005A5B34 /* SignupDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,10 +2,10 @@ import UIKit
 
 protocol RootCoodinatorDelegate {
     func didLoggedIn(_ coodinator: RootCoodinator)
+    func didSignup(_ coodinator: RootCoodinator)
 }
 
-class RootCoodinator: Coodinator, RootViewControllerCoodinator, SigninCoodinatorDelegate, SignupCoodinatorDelegate {
-    
+class RootCoodinator: Coodinator, RootViewControllerCoodinator {
     var childCoodinators: [Coodinator] = []
     var delegate: RootCoodinatorDelegate?
     
@@ -36,13 +36,26 @@ class RootCoodinator: Coodinator, RootViewControllerCoodinator, SigninCoodinator
         coodinator.start()
         self.childCoodinators.append(coodinator)
     }
-    
+}
+
+extension RootCoodinator: SigninCoodinatorDelegate {
     func didDismissSigninViewController(_ coodinator: SigninCoodinator) {
         self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
-        print(self.childCoodinators)
     }
     
+    func didLoggedIn(_ coodinator: SigninCoodinator) {
+        self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
+        self.delegate?.didLoggedIn(self)
+    }
+}
+
+extension RootCoodinator: SignupCoodinatorDelegate {
     func didDismissSignupViewController(_ coodinator: SignupCoodinator) {
         self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
+    }
+    
+    func didConfirmSignup(_ coodinator: SignupCoodinator) {
+        self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
+        self.delegate?.didSignup(self)
     }
 }

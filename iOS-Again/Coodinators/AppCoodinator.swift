@@ -21,7 +21,9 @@ class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     }
     
     func showMainViewController() {
-        
+        let coodinator = MainCoodinator(navigationController: self.navigationConroller)
+        coodinator.start()
+        self.childCoodinators.append(coodinator)
     }
     
     func showRootViewController() {
@@ -33,6 +35,12 @@ class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     
     func didLoggedIn(_ coodinator: RootCoodinator) {
         self.childCoodinators = self.childCoodinators.filter{ coodinator !== $0 }
+        self.showMainViewController()
+    }
+    
+    func didSignup(_ coodinator: RootCoodinator) {
+        self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
+        self.navigationConroller.popToRootViewController(animated: true)
         self.showMainViewController()
     }
 }
