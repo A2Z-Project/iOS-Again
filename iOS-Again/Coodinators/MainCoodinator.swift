@@ -1,6 +1,6 @@
 import UIKit
 
-class MainCoodinator: Coodinator, MainViewControllerDelegate {
+class MainCoodinator: Coodinator {
     var childCoodinators: [Coodinator] = []
     
     private var navigationController: UINavigationController!
@@ -10,9 +10,27 @@ class MainCoodinator: Coodinator, MainViewControllerDelegate {
     }
     
     func start() {
-        let viewController = MainViewController()
+        let viewController = UITabBarController()
         
-        viewController.delegate = self
+        let feedCoodinator = FeedCoodinator(navigationController: navigationController)
+        let firstGroupCoodinator = FeedCoodinator(navigationController: navigationController)
+        let secondGroupCoodinator = FeedCoodinator(navigationController: navigationController)
+        let profileCoodinator = FeedCoodinator(navigationController: navigationController)
+        
+        childCoodinators = [
+            feedCoodinator,
+            firstGroupCoodinator,
+            secondGroupCoodinator,
+            profileCoodinator
+        ]
+        
+        viewController.viewControllers = [
+            feedCoodinator.setupTabBarItem(),
+            firstGroupCoodinator.setupTabBarItem(),
+            secondGroupCoodinator.setupTabBarItem(),
+            profileCoodinator.setupTabBarItem()
+        ]
+        
         viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }

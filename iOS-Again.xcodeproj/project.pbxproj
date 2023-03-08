@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8513B24329B847C5000FE8DD /* MainCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513B24229B847C5000FE8DD /* MainCoodinator.swift */; };
 		853B65BE29ADE50A005A5B34 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BD29ADE50A005A5B34 /* UILabel.swift */; };
 		853B65C029ADE714005A5B34 /* Snapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BF29ADE714005A5B34 /* Snapkit.swift */; };
 		853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C129ADFF65005A5B34 /* UIButton.swift */; };
@@ -29,8 +30,8 @@
 		853B65E929B01CF4005A5B34 /* SignupAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */; };
 		853B65EB29B0908B005A5B34 /* SignupAccountCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */; };
 		853B65ED29B093C2005A5B34 /* UserRegisterationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */; };
-		853B65EF29B0BC88005A5B34 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EE29B0BC88005A5B34 /* MainViewController.swift */; };
-		853B65F129B0C33A005A5B34 /* MainCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65F029B0C33A005A5B34 /* MainCoodinator.swift */; };
+		853B65EF29B0BC88005A5B34 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65EE29B0BC88005A5B34 /* FeedViewController.swift */; };
+		853B65F129B0C33A005A5B34 /* FeedCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65F029B0C33A005A5B34 /* FeedCoodinator.swift */; };
 		853C7FEE29A8F49C00A889A9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FED29A8F49C00A889A9 /* UIViewController.swift */; };
 		853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853C7FF529AAB41500A889A9 /* UIFont.swift */; };
 		853C7FF829AACE2C00A889A9 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853C7FF229A93D6100A889A9 /* NotoSansKR-Thin.otf */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8513B24229B847C5000FE8DD /* MainCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoodinator.swift; sourceTree = "<group>"; };
 		853B65BD29ADE50A005A5B34 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		853B65BF29ADE714005A5B34 /* Snapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapkit.swift; sourceTree = "<group>"; };
 		853B65C129ADFF65005A5B34 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -75,8 +77,8 @@
 		853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountViewController.swift; sourceTree = "<group>"; };
 		853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountCoodinator.swift; sourceTree = "<group>"; };
 		853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterationModel.swift; sourceTree = "<group>"; };
-		853B65EE29B0BC88005A5B34 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		853B65F029B0C33A005A5B34 /* MainCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoodinator.swift; sourceTree = "<group>"; };
+		853B65EE29B0BC88005A5B34 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		853B65F029B0C33A005A5B34 /* FeedCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoodinator.swift; sourceTree = "<group>"; };
 		853C7FED29A8F49C00A889A9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		853C7FEF29A93D6000A889A9 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		853C7FF029A93D6100A889A9 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
 				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
 				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
-				853B65EE29B0BC88005A5B34 /* MainViewController.swift */,
+				853B65EE29B0BC88005A5B34 /* FeedViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,7 +192,8 @@
 				853B65E229AFE652005A5B34 /* SignupCoodinator.swift */,
 				853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */,
 				853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */,
-				853B65F029B0C33A005A5B34 /* MainCoodinator.swift */,
+				853B65F029B0C33A005A5B34 /* FeedCoodinator.swift */,
+				8513B24229B847C5000FE8DD /* MainCoodinator.swift */,
 			);
 			path = Coodinators;
 			sourceTree = "<group>";
@@ -340,7 +343,7 @@
 				853B65E129AF6AC7005A5B34 /* SignupViewController.swift in Sources */,
 				853C800029AB973800A889A9 /* AGButton.swift in Sources */,
 				853B65EB29B0908B005A5B34 /* SignupAccountCoodinator.swift in Sources */,
-				853B65F129B0C33A005A5B34 /* MainCoodinator.swift in Sources */,
+				853B65F129B0C33A005A5B34 /* FeedCoodinator.swift in Sources */,
 				853B65CC29AE4BC4005A5B34 /* SigninCoodinator.swift in Sources */,
 				853B65D629AF0BD1005A5B34 /* AGDivideLine.swift in Sources */,
 				853B65CA29AE04C3005A5B34 /* RootCoodinator.swift in Sources */,
@@ -360,8 +363,9 @@
 				853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */,
 				85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */,
 				853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */,
-				853B65EF29B0BC88005A5B34 /* MainViewController.swift in Sources */,
+				853B65EF29B0BC88005A5B34 /* FeedViewController.swift in Sources */,
 				853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */,
+				8513B24329B847C5000FE8DD /* MainCoodinator.swift in Sources */,
 				853B65E529B00D60005A5B34 /* SignupDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

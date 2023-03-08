@@ -3,12 +3,12 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol MainViewControllerDelegate {
+protocol FeedViewControllerDelegate {
     
 }
 
-class MainViewController: UIViewController {
-    var delegate: MainViewControllerDelegate?
+class FeedViewController: UIViewController {
+    var delegate: FeedViewControllerDelegate?
     let disposeBag = DisposeBag()
     
     let header = AGHeader()
@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController {
+extension FeedViewController {
     func configureLayout() {
         [header].forEach { self.view.addSubview($0) }
         
@@ -39,9 +39,9 @@ extension MainViewController {
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 
-class MainViewController_Preview: PreviewProvider {
+class FeedViewController_Preview: PreviewProvider {
     static var previews: some View {
-        MainViewController().showPreview()
+        FeedViewController().showPreview()
     }
 }
 #endif
