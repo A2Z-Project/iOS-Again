@@ -106,7 +106,7 @@ class AGFeedItem: UITableViewCell {
                 let label = UILabel()
                 
                 label.text = "여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요."
-                label.font = UIFont(type: NotoSansKR.regular, size: 14)
+                label.font = UIFont(type: NotoSansKR.regular, size: 12)
                 
                 label.numberOfLines = 5
                 label.lineBreakMode = .byCharWrapping
@@ -119,7 +119,7 @@ class AGFeedItem: UITableViewCell {
                 
                 stackView.axis = .horizontal
                 stackView.alignment = .center
-                stackView.spacing = 3
+                stackView.spacing = 4
                 
                 let likeButton: UIButton = {
                     let button = UIButton()
@@ -132,7 +132,7 @@ class AGFeedItem: UITableViewCell {
                     let label = UILabel()
                     
                     label.text = "0"
-                    label.font = UIFont(type: NotoSansKR.light, size: 10)
+                    label.font = UIFont(type: NotoSansKR.regular, size: 11)
                     
                     return label
                 }()

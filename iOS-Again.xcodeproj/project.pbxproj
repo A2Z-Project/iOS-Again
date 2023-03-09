@@ -48,6 +48,10 @@
 		85C5F83F29B99EC000B62A06 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F83E29B99EC000B62A06 /* SearchViewController.swift */; };
 		85C5F84229B99F4A00B62A06 /* SearchViewCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84129B99F4A00B62A06 /* SearchViewCoodinator.swift */; };
 		85C5F84429B9BA1000B62A06 /* AGSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84329B9BA1000B62A06 /* AGSearchBar.swift */; };
+		85C5F84629BA231D00B62A06 /* GroupGuideModalCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84529BA231D00B62A06 /* GroupGuideModalCoodinator.swift */; };
+		85C5F84829BA233200B62A06 /* GroupGuideModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84729BA233200B62A06 /* GroupGuideModalViewController.swift */; };
+		85C5F84A29BA2E8D00B62A06 /* GroupCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84929BA2E8D00B62A06 /* GroupCoodinator.swift */; };
+		85C5F84C29BA2EDF00B62A06 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5F84B29BA2EDF00B62A06 /* GroupViewController.swift */; };
 		85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA52982DC1F008B0148 /* AppDelegate.swift */; };
 		85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA72982DC1F008B0148 /* SceneDelegate.swift */; };
 		85E73AAA2982DC1F008B0148 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E73AA92982DC1F008B0148 /* RootViewController.swift */; };
@@ -100,6 +104,10 @@
 		85C5F83E29B99EC000B62A06 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		85C5F84129B99F4A00B62A06 /* SearchViewCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCoodinator.swift; sourceTree = "<group>"; };
 		85C5F84329B9BA1000B62A06 /* AGSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSearchBar.swift; sourceTree = "<group>"; };
+		85C5F84529BA231D00B62A06 /* GroupGuideModalCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGuideModalCoodinator.swift; sourceTree = "<group>"; };
+		85C5F84729BA233200B62A06 /* GroupGuideModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGuideModalViewController.swift; sourceTree = "<group>"; };
+		85C5F84929BA2E8D00B62A06 /* GroupCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCoodinator.swift; sourceTree = "<group>"; };
+		85C5F84B29BA2EDF00B62A06 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		85E73AA22982DC1F008B0148 /* iOS-Again.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Again.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E73AA52982DC1F008B0148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E73AA72982DC1F008B0148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +170,8 @@
 		85C5F83629B99C6700B62A06 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				85C5F84729BA233200B62A06 /* GroupGuideModalViewController.swift */,
+				85C5F84B29BA2EDF00B62A06 /* GroupViewController.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -208,6 +218,8 @@
 		85C5F83B29B99C9200B62A06 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				85C5F84529BA231D00B62A06 /* GroupGuideModalCoodinator.swift */,
+				85C5F84929BA2E8D00B62A06 /* GroupCoodinator.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -463,6 +475,7 @@
 				853B65BE29ADE50A005A5B34 /* UILabel.swift in Sources */,
 				85C5F83F29B99EC000B62A06 /* SearchViewController.swift in Sources */,
 				853B65E929B01CF4005A5B34 /* SignupAccountViewController.swift in Sources */,
+				85C5F84829BA233200B62A06 /* GroupGuideModalViewController.swift in Sources */,
 				853B65E729B0120E005A5B34 /* SignupDetailCoodinator.swift in Sources */,
 				853B65C829AE02E6005A5B34 /* AppCoodinator.swift in Sources */,
 				85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */,
@@ -472,6 +485,7 @@
 				853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */,
 				853B65D429AF0935005A5B34 /* UITextField.swift in Sources */,
 				85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */,
+				85C5F84629BA231D00B62A06 /* GroupGuideModalCoodinator.swift in Sources */,
 				8513B24729B895AA000FE8DD /* AGFeedItem.swift in Sources */,
 				853B65DD29AF4E7C005A5B34 /* AGBackButton.swift in Sources */,
 				853B65C429AE016D005A5B34 /* SigninViewController.swift in Sources */,
@@ -479,8 +493,10 @@
 				853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */,
 				85914E0729B2F94E003BF4DC /* AGHeader.swift in Sources */,
 				853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */,
+				85C5F84A29BA2E8D00B62A06 /* GroupCoodinator.swift in Sources */,
 				853B65EF29B0BC88005A5B34 /* FeedViewController.swift in Sources */,
 				853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */,
+				85C5F84C29BA2EDF00B62A06 /* GroupViewController.swift in Sources */,
 				8513B24329B847C5000FE8DD /* MainCoodinator.swift in Sources */,
 				853B65E529B00D60005A5B34 /* SignupDetailViewController.swift in Sources */,
 			);
