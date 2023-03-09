@@ -121,6 +121,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85C5F83329B99C0800B62A06 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				853B65E029AF6AC7005A5B34 /* SignupViewController.swift */,
+				85E73AA92982DC1F008B0148 /* RootViewController.swift */,
+				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
+				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
+				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		85C5F83429B99C3300B62A06 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				85C5F83729B99C7200B62A06 /* Profile */,
+				85C5F83629B99C6700B62A06 /* Group */,
+				85C5F83529B99C5B00B62A06 /* Feed */,
+				8513B24429B88DAC000FE8DD /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		85C5F83529B99C5B00B62A06 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				853B65EE29B0BC88005A5B34 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		85C5F83629B99C6700B62A06 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		85C5F83729B99C7200B62A06 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		85C5F83829B99C7C00B62A06 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				853B65C929AE04C3005A5B34 /* RootCoodinator.swift */,
+				853B65CB29AE4BC4005A5B34 /* SigninCoodinator.swift */,
+				853B65E229AFE652005A5B34 /* SignupCoodinator.swift */,
+				853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */,
+				853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		85C5F83929B99C8200B62A06 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8513B24229B847C5000FE8DD /* MainCoodinator.swift */,
+				85C5F83C29B99C9700B62A06 /* Profile */,
+				85C5F83B29B99C9200B62A06 /* Group */,
+				85C5F83A29B99C8D00B62A06 /* Feed */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		85C5F83A29B99C8D00B62A06 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				853B65F029B0C33A005A5B34 /* FeedCoodinator.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		85C5F83B29B99C9200B62A06 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		85C5F83C29B99C9700B62A06 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		85E73A992982DC1F008B0148 = {
 			isa = PBXGroup;
 			children = (
@@ -162,13 +252,8 @@
 		85E73AC62983961A008B0148 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				853B65E029AF6AC7005A5B34 /* SignupViewController.swift */,
-				85E73AA92982DC1F008B0148 /* RootViewController.swift */,
-				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
-				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
-				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
-				853B65EE29B0BC88005A5B34 /* FeedViewController.swift */,
-				8513B24429B88DAC000FE8DD /* MainViewController.swift */,
+				85C5F83429B99C3300B62A06 /* Main */,
+				85C5F83329B99C0800B62A06 /* Root */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,14 +276,9 @@
 		85E73AC92983966A008B0148 /* Coodinators */ = {
 			isa = PBXGroup;
 			children = (
+				85C5F83929B99C8200B62A06 /* Main */,
+				85C5F83829B99C7C00B62A06 /* Root */,
 				853B65C729AE02E6005A5B34 /* AppCoodinator.swift */,
-				853B65C929AE04C3005A5B34 /* RootCoodinator.swift */,
-				853B65CB29AE4BC4005A5B34 /* SigninCoodinator.swift */,
-				853B65E229AFE652005A5B34 /* SignupCoodinator.swift */,
-				853B65E629B0120E005A5B34 /* SignupDetailCoodinator.swift */,
-				853B65EA29B0908B005A5B34 /* SignupAccountCoodinator.swift */,
-				853B65F029B0C33A005A5B34 /* FeedCoodinator.swift */,
-				8513B24229B847C5000FE8DD /* MainCoodinator.swift */,
 			);
 			path = Coodinators;
 			sourceTree = "<group>";

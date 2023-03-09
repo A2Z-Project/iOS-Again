@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 protocol FeedViewControllerDelegate {
-    
+    func showSearchViewController()
 }
 
 class FeedViewController: UIViewController {
@@ -12,14 +12,6 @@ class FeedViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     let header = AGHeader()
-    let scrollView = UIScrollView()
-    let scrollContentView: UIStackView = {
-        let stackView = UIStackView()
-        
-        stackView.axis = .vertical
-        
-        return stackView
-    }()
     let feedView: UITableView = {
         let tableView = UITableView()
         
@@ -49,28 +41,14 @@ class FeedViewController: UIViewController {
 extension FeedViewController {
     func configureLayout() {
         [header, feedView].forEach { self.view.addSubview($0) }
-//        scrollView.addSubview(scrollContentView)
-//        feeds.forEach { scrollContentView.addArrangedSubview($0) }
         
         header.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.horizontalPaddingToSuperView(0)
         }
-        
-//        scrollView.snp.makeConstraints { make in
-//            make.top.equalTo(header.snp.bottom)
-//            make.trailing.bottom.leading.equalToSuperview()
-//        }
-//
-//        scrollContentView.snp.makeConstraints { make in
-//            make.edges.equalTo(scrollView.contentLayoutGuide)
-//            make.height.greaterThanOrEqualTo(scrollView.frame.size.height).priority(.low)
-//            make.width.equalTo(scrollView.snp.width)
-//        }
     
         feedView.delegate = self
         feedView.dataSource = self
-        feedView.estimatedRowHeight = 100
         feedView.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom)
             make.trailing.bottom.leading.equalToSuperview()
@@ -79,6 +57,12 @@ extension FeedViewController {
     
     func didAction() {
         
+    }
+}
+
+extension FeedViewController: AGHeaderDelegate {
+    func tapSearchButton() {
+        self.delegate?.showSearchViewController()
     }
 }
 

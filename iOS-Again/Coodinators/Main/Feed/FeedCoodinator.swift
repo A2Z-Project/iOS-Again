@@ -25,4 +25,8 @@ class FeedCoodinator: Coodinator, FeedViewControllerDelegate {
         
         return viewController
     }
+    
+    func showSearchViewController() {
+        
+    }
 }

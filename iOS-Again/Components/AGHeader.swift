@@ -1,11 +1,16 @@
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 protocol AGHeaderDelegate {
-    
+    func tapSearchButton()
 }
 
 class AGHeader: UIStackView {
+    var delegate: AGHeaderDelegate?
+    let disposeBag = DisposeBag()
+    
     required init() {
         super.init(frame: .zero)
         
@@ -24,14 +29,13 @@ class AGHeader: UIStackView {
             return stackView
         }()
         
-        let logoButton: UIButton = {
-            let button = UIButton()
+        let logoLabel: UILabel = {
+            let label = UILabel()
             
-            button.setTitle("Again", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.titleLabel?.font = UIFont(type: AllertaStencil.regular, size: 20)
+            label.text = "Again"
+            label.font = UIFont(type: AllertaStencil.regular, size: 20)
             
-            return button
+            return label
         }()
         let searchButton: UIButton = {
             let button = UIButton()
@@ -54,7 +58,7 @@ class AGHeader: UIStackView {
             return view
         }()
         
-        [logoButton, searchButton].forEach { content.addArrangedSubview($0) }
+        [logoLabel, searchButton].forEach { content.addArrangedSubview($0) }
         [content, line].forEach { self.addArrangedSubview($0) }
         
         content.snp.makeConstraints { make in
@@ -68,6 +72,11 @@ class AGHeader: UIStackView {
         line.snp.makeConstraints { make in
             make.height.equalTo(5)
         }
+        
+        searchButton.rx.tap
+            .bind {
+                self.delegate?.tapSearchButton()
+            }.disposed(by: disposeBag)
     }
     
     required init(coder: NSCoder) {
