@@ -114,7 +114,47 @@ class AGFeedItem: UITableViewCell {
                 return label
             }()
             
-            [header, contentTexts].forEach { stackView.addArrangedSubview($0) }
+            let actionStackView: UIStackView = {
+                let stackView = UIStackView()
+                
+                stackView.axis = .horizontal
+                stackView.alignment = .center
+                stackView.spacing = 3
+                
+                let likeButton: UIButton = {
+                    let button = UIButton()
+                        
+                    button.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+                    
+                    return button
+                }()
+                let likeLabel: UILabel = {
+                    let label = UILabel()
+                    
+                    label.text = "0"
+                    label.font = UIFont(type: NotoSansKR.light, size: 10)
+                    
+                    return label
+                }()
+                
+                let spacer: UIView = {
+                    let view = UIView()
+                    
+                    view.setContentHuggingPriority(.defaultLow, for: .horizontal)
+                    
+                    return view
+                }()
+                
+                [likeButton, likeLabel, spacer].forEach { stackView.addArrangedSubview($0) }
+                
+                likeButton.snp.makeConstraints { make in
+                    make.width.height.equalTo(15)
+                }
+                
+                return stackView
+            }()
+            
+            [header, contentTexts, actionStackView].forEach { stackView.addArrangedSubview($0) }
             
             return stackView
         }()
@@ -138,7 +178,7 @@ private class AGFeedItemGroupTag: UILabel {
         self.layoutMargins = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         
         self.text = text
-        self.font = UIFont(type: NotoSansKR.regular, size: 11)
+        self.font = UIFont(type: NotoSansKR.regular, size: 10)
         self.tintColor = UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
         
         self.backgroundColor = UIColor(red: 187 / 255, green: 187 / 255, blue: 187 / 255, alpha: 1)
