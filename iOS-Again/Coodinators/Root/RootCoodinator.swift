@@ -19,7 +19,7 @@ class RootCoodinator: Coodinator, RootViewControllerCoodinator {
         let viewController = RootViewController()
         
         viewController.delegate = self
-        viewController.view.backgroundColor = .systemBackground
+        viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
     

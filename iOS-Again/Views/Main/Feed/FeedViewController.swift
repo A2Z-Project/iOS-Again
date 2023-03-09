@@ -74,6 +74,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AGFeedItem.identifier, for: indexPath) as! AGFeedItem
+        
+        cell.selectionStyle = .none
+        
         return cell
     }
 }

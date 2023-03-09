@@ -20,7 +20,7 @@ class SigninCoodinator: Coodinator, SigninViewControllerDelegate {
         let viewController = SigninViewController()
         
         viewController.delegate = self
-        viewController.view.backgroundColor = .systemBackground
+        viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
     

@@ -5,6 +5,8 @@
 //  Created by DDang on 2023/02/24.
 //
 
+import UIKit
+
 enum DeviceType {
     case iPhoneSE2
     case iPhone8

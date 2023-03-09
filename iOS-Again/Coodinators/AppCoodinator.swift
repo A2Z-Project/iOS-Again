@@ -5,7 +5,7 @@ class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     var childCoodinators: [Coodinator] = []
     private var navigationConroller: UINavigationController!
     
-    var isLoggedIn: Bool = true
+    var isLoggedIn: Bool = false
     
     init(navigationConroller: UINavigationController) {
         self.navigationConroller = navigationConroller

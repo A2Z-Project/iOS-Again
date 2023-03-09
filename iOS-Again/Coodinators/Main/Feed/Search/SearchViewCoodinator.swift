@@ -18,6 +18,7 @@ class SearchViewCoodinator: Coodinator, SearchViewControllerDelegate {
         let viewController = SearchViewController()
         
         viewController.delegate = self
+        viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
