@@ -42,6 +42,7 @@ extension FeedViewController {
     func configureLayout() {
         [header, feedView].forEach { self.view.addSubview($0) }
         
+        header.delegate = self
         header.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.horizontalPaddingToSuperView(0)
