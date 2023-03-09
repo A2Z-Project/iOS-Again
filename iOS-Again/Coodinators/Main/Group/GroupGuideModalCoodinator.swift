@@ -18,7 +18,6 @@ class GroupGuideModalCoodinator: Coodinator {
         let viewController = GroupGuideModalViewController()
         
         viewController.delegate = self
-        viewController.view.backgroundColor = .white
         
         viewController.modalPresentationStyle = .pageSheet
         

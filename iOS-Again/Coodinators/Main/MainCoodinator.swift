@@ -32,7 +32,6 @@ class MainCoodinator: Coodinator {
         ]
         
         viewController.viewControllerDelegate = self
-        viewController.view.backgroundColor = .white
         viewController.tabBar.barTintColor = .white
         viewController.tabBar.isTranslucent = false
         self.navigationController.pushViewController(viewController, animated: true)

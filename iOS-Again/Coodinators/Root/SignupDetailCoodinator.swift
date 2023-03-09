@@ -20,7 +20,6 @@ class SignupDetailCoodinator: Coodinator, SignupDetailViewControllerDelegate {
         let viewController =  SignupDetailViewController()
         
         viewController.delegate = self
-        viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
     

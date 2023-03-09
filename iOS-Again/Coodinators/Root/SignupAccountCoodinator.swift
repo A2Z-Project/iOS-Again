@@ -19,7 +19,6 @@ class SignupAccountCoodinator: Coodinator, SignupAccountViewControllerDelegate {
         let viewController = SignupAccountViewController()
         
         viewController.delegate = self
-        viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
