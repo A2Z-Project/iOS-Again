@@ -118,38 +118,59 @@ class AGFeedItem: UITableViewCell {
                 let stackView = UIStackView()
                 
                 stackView.axis = .horizontal
-                stackView.alignment = .center
-                stackView.spacing = 4
+                stackView.distribution = .equalSpacing
                 
-                let likeButton: UIButton = {
-                    let button = UIButton()
-                        
-                    button.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+                let likeStackView: UIStackView = {
+                    let stackView = UIStackView()
                     
-                    return button
+                    stackView.axis = .horizontal
+                    stackView.alignment = .center
+                    stackView.spacing = 4
+                    
+                    let likeButton: UIButton = {
+                        let button = UIButton()
+                        
+                        button.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+                        
+                        return button
+                    }()
+                    let likeLabel: UILabel = {
+                        let label = UILabel()
+                        
+                        label.text = "0"
+                        label.font = UIFont(type: NotoSansKR.regular, size: 11)
+                        
+                        return label
+                    }()
+                    
+                    let spacer: UIView = {
+                        let view = UIView()
+                        
+                        view.setContentHuggingPriority(.defaultLow, for: .horizontal)
+                        
+                        return view
+                    }()
+                    
+                    [likeButton, likeLabel, spacer].forEach { stackView.addArrangedSubview($0) }
+                    
+                    likeButton.snp.makeConstraints { make in
+                        make.width.height.equalTo(15)
+                    }
+                    
+                    return stackView
                 }()
-                let likeLabel: UILabel = {
+                
+                let dateLabel: UILabel = {
                     let label = UILabel()
                     
-                    label.text = "0"
+                    label.text = "2023.03.10"
                     label.font = UIFont(type: NotoSansKR.regular, size: 11)
+                    label.textColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
                     
                     return label
                 }()
                 
-                let spacer: UIView = {
-                    let view = UIView()
-                    
-                    view.setContentHuggingPriority(.defaultLow, for: .horizontal)
-                    
-                    return view
-                }()
-                
-                [likeButton, likeLabel, spacer].forEach { stackView.addArrangedSubview($0) }
-                
-                likeButton.snp.makeConstraints { make in
-                    make.width.height.equalTo(15)
-                }
+                [likeStackView, dateLabel].forEach { stackView.addArrangedSubview($0) }
                 
                 return stackView
             }()
