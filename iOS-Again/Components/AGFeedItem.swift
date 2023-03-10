@@ -1,8 +1,16 @@
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+
+protocol AGFeedItemDelegate {
+    func tapOptionButton()
+}
 
 class AGFeedItem: UITableViewCell {
     static let identifier = "agFeedCell"
+    
+    let disposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -86,10 +94,13 @@ class AGFeedItem: UITableViewCell {
                     button.layer.masksToBounds = true
                     button.layer.cornerRadius = 15
                     
+//                    button.menu = AGFeedItem.menu
+//                    button.showsMenuAsPrimaryAction = true
+                    
                     return button
                 }()
                 
-                [profileImageView, profileVerticalStackView, optionButton].forEach { stackView.addArrangedSubview($0) }
+                [profileImageView, profileVerticalStackView].forEach { stackView.addArrangedSubview($0) }
                 
                 profileImageView.snp.makeConstraints { make in
                     make.width.height.equalTo(45)
@@ -105,7 +116,7 @@ class AGFeedItem: UITableViewCell {
             let contentTexts: UILabel = {
                 let label = UILabel()
                 
-                label.text = "여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요. 여기에 Content를 써줘요."
+                label.text = Array(repeating: "여기에 Content를 써줘요.", count: 20).joined(separator: " ")
                 label.font = UIFont(type: NotoSansKR.regular, size: 12)
                 
                 label.numberOfLines = 5

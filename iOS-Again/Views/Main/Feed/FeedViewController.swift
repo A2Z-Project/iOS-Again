@@ -79,6 +79,19 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        lazy var menuItems: [UIAction] = {
+            return [
+                UIAction(title: "신고하기", attributes: .destructive, handler: { _ in print("신고하기")})
+            ]
+        }()
+        lazy var menu: UIMenu = {
+            return UIMenu(title: "", options: [], children: menuItems)
+        }()
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in return menu })
+    }
 }
 
 #if canImport(SwiftUI) && DEBUG
