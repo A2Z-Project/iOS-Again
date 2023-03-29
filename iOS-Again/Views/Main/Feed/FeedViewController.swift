@@ -76,6 +76,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: AGFeedItem.identifier, for: indexPath) as! AGFeedItem
         
         cell.selectionStyle = .none
+        cell.delegate = self
         
         return cell
     }
@@ -91,6 +92,12 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }()
         
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in return menu })
+    }
+}
+
+extension FeedViewController: AGFeedItemDelegate {
+    func tapLikeButton(_ item: AGFeedItem) {
+        
     }
 }
 

@@ -34,3 +34,13 @@ extension GroupGuideModalViewController {
         
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+class GroupGuideModalViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        GroupGuideModalViewController().showPreview()
+    }
+}
+#endif

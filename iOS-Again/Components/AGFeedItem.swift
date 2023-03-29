@@ -4,11 +4,12 @@ import RxSwift
 import RxCocoa
 
 protocol AGFeedItemDelegate {
-    func tapOptionButton()
+    func tapLikeButton(_ item: AGFeedItem)
 }
 
 class AGFeedItem: UITableViewCell {
     static let identifier = "agFeedCell"
+    var delegate: AGFeedItemDelegate?
     
     let disposeBag = DisposeBag()
     
@@ -167,6 +168,11 @@ class AGFeedItem: UITableViewCell {
                     likeButton.snp.makeConstraints { make in
                         make.width.height.equalTo(15)
                     }
+                    
+                    likeButton.rx.tap
+                        .bind {
+                            self.delegate?.tapLikeButton(self)
+                        }.disposed(by: disposeBag)
                     
                     return stackView
                 }()
