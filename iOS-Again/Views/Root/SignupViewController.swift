@@ -4,16 +4,23 @@ import SwiftUI
 import RxSwift
 import RxCocoa
 
+import AuthenticationServices
+import CryptoKit
+import FirebaseAuth
+
 protocol SignupViewControllerDelegate {
     func dismiss()
-    func enterEmailSignup()
+    func enterEmailSignup(_ userData: UserRegisterationModel)
+    func didSNSSignup(_ userData: UserRegisterationModel)
 }
 
 class SignupViewController: UIViewController {
     
     var delegate: SignupViewControllerDelegate?
-    private let viewModel = SignupViewModel()
+    private var viewModel: SignupViewModel?
+    let userRegisterationViewModel = UserRegisterationModel()
     let disposeBag = DisposeBag()
+    fileprivate var currentNonce: String?
     
     let stackView: UIStackView = {
         let sv = UIStackView()
@@ -39,6 +46,8 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = SignupViewModel(self)
         
         self.configureLayout()
         self.didAction()
@@ -83,17 +92,17 @@ extension SignupViewController {
         
         emailSignupButton.rx.tap
             .bind {
-                self.delegate?.enterEmailSignup()
+                self.delegate?.enterEmailSignup(UserRegisterationModel())
             }.disposed(by: disposeBag)
         
         googleSignupButton.rx.tap
             .bind {
-                self.viewModel.clickedGoogleSignupButton(self)
+                self.viewModel!.tappedGoogleSignupButton()
             }.disposed(by: disposeBag)
         
         appleSignupButton.rx.tap
             .bind {
-                FirebaseAuthentication().signInWithApple()
+                self.viewModel!.tappedAppleSignupButton()
             }.disposed(by: disposeBag)
     }
 }

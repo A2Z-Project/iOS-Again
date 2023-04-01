@@ -5,16 +5,7 @@ protocol SignupCoodinatorDelegate {
     func didConfirmSignup(_ coodinator: SignupCoodinator)
 }
 
-protocol RegisterUserDelegate {
-    var user: UserRegisterationModel { get set }
-    
-    func confirmAccountInfo()
-    func confirmUserInfo()
-}
-
 class SignupCoodinator: Coodinator, SignupViewControllerDelegate {
-    
-    var user: UserRegisterationModel
     
     var childCoodinators: [Coodinator] = []
     var delegate: SignupCoodinatorDelegate?
@@ -22,7 +13,6 @@ class SignupCoodinator: Coodinator, SignupViewControllerDelegate {
     private var navigationController: UINavigationController!
     
     init(navigationController: UINavigationController) {
-        self.user = UserRegisterationModel()
         self.navigationController = navigationController
     }
     
@@ -39,11 +29,19 @@ class SignupCoodinator: Coodinator, SignupViewControllerDelegate {
         self.delegate?.didDismissSignupViewController(self)
     }
     
-    func enterEmailSignup() {
+    func enterEmailSignup(_ userData: UserRegisterationModel) {
         let coodinator = SignupAccountCoodinator(navigationController: navigationController)
         
         coodinator.delegate = self
-        coodinator.start()
+        coodinator.start(userData)
+        self.childCoodinators.append(coodinator)
+    }
+    
+    func didSNSSignup(_ userData: UserRegisterationModel) {
+        let coodinator = SignupDetailCoodinator(navigationController: navigationController)
+        
+        coodinator.delegate = self
+        coodinator.start(userData)
         self.childCoodinators.append(coodinator)
     }
 }
@@ -59,12 +57,13 @@ extension SignupCoodinator: SignupAccountCoodinatorDelegate {
     }
 }
 
-extension SignupCoodinator: RegisterUserDelegate {
-    func confirmAccountInfo() {
-        
+extension SignupCoodinator: SignupDetailCoodinatorDelegate {
+    func didDismissSignupDetailViewController(_ coodinator: SignupDetailCoodinator) {
+        self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
     }
     
-    func confirmUserInfo() {
-        
+    func didConfirmSignup(_ coodinator: SignupDetailCoodinator) {
+        self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
+        self.delegate?.didConfirmSignup(self)
     }
 }

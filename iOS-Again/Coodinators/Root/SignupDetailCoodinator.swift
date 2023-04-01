@@ -16,7 +16,9 @@ class SignupDetailCoodinator: Coodinator, SignupDetailViewControllerDelegate {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start() { }
+    
+    func start(_ userData: UserRegisterationModel) {
         let viewController =  SignupDetailViewController()
         
         viewController.delegate = self

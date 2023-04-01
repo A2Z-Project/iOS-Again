@@ -10,6 +10,7 @@ protocol SignupAccountViewControllerDelegate {
 
 class SignupAccountViewController: UIViewController {
     var delegate: SignupAccountViewControllerDelegate?
+    let viewModel = SignupAccountViewModel()
     let disposeBag = DisposeBag()
     
     let backButton = AGBackButton()

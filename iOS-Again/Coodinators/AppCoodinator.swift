@@ -1,11 +1,10 @@
 import UIKit
+import FirebaseAuth
 
 class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     
     var childCoodinators: [Coodinator] = []
     private var navigationConroller: UINavigationController!
-    
-    var isLoggedIn: Bool = false
     
     init(navigationConroller: UINavigationController) {
         self.navigationConroller = navigationConroller
@@ -13,11 +12,12 @@ class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     }
     
     func start() {
-        if self.isLoggedIn {
-            self.showMainViewController()
-        } else {
-            self.showRootViewController()
-        }
+        self.showRootViewController()
+//        if let currentUser = Auth.auth().currentUser {
+//            self.showMainViewController()
+//        } else {
+//            self.showRootViewController()
+//        }
     }
     
     func showMainViewController() {
