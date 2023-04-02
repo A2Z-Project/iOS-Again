@@ -15,9 +15,7 @@ class SignupAccountCoodinator: Coodinator, SignupAccountViewControllerDelegate {
         self.navigationController = navigationController
     }
     
-    func start() { }
-    
-    func start(_ userData: UserRegisterationModel) {
+    func start() {
         let viewController = SignupAccountViewController()
         
         viewController.delegate = self
@@ -30,11 +28,11 @@ class SignupAccountCoodinator: Coodinator, SignupAccountViewControllerDelegate {
         self.delegate?.didDismissSignupAccountCoodinatorDelegate(self)
     }
     
-    func confirm() {
+    func confirm(_ userData: UserRegisterationModel) {
         let coodinator = SignupDetailCoodinator(navigationController: navigationController)
         
         coodinator.delegate = self
-        coodinator.start()
+        coodinator.start(userData)
         self.childCoodinators.append(coodinator)
     }
 }

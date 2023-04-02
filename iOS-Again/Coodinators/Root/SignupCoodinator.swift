@@ -33,7 +33,7 @@ class SignupCoodinator: Coodinator, SignupViewControllerDelegate {
         let coodinator = SignupAccountCoodinator(navigationController: navigationController)
         
         coodinator.delegate = self
-        coodinator.start(userData)
+        coodinator.start()
         self.childCoodinators.append(coodinator)
     }
     

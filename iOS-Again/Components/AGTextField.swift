@@ -1,8 +1,27 @@
 import UIKit
 import SnapKit
 
+enum AGTextFieldType {
+    case none
+    case emailAddress
+    case password
+}
+
 class AGTextField: UIStackView {
-    required init(title: String, placeholder: String) {
+    var textField: UITextField = {
+        let tf = UITextField()
+        
+        tf.layer.borderWidth = 2
+        tf.layer.borderColor = UIColor(red: 34 / 255, green: 34 / 255, blue: 34 / 255, alpha: 1.0).cgColor
+        tf.layer.cornerRadius = 10
+        tf.addLeftPadding()
+        
+        tf.autocapitalizationType = .none
+        
+        return tf
+    }()
+    
+    required init(_ type: AGTextFieldType = .none, title: String, placeholder: String) {
         super.init(frame: .zero)
         
         self.axis = .vertical
@@ -18,24 +37,25 @@ class AGTextField: UIStackView {
             return label
         }()
         
-        let textField: UITextField = {
-            let tf = UITextField()
-                
-            tf.layer.borderWidth = 2
-            tf.layer.borderColor = UIColor(red: 34 / 255, green: 34 / 255, blue: 34 / 255, alpha: 1.0).cgColor
-            tf.layer.cornerRadius = 10
-            tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
-                .font: UIFont(type: NotoSansKR.light, size: 14)!,
-                .foregroundColor: UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
-            ])
-            tf.addLeftPadding()
-            
-            return tf
-        }()
-        
         textField.snp.makeConstraints { make in
             make.height.equalTo(50)
         }
+        
+        switch type {
+        case .emailAddress:
+            textField.keyboardType = .emailAddress
+            break
+        case .password:
+            textField.keyboardType = .default
+            textField.isSecureTextEntry = true
+            break
+        default:
+            textField.keyboardType = .default
+        }
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
+            .font: UIFont(type: NotoSansKR.light, size: 14)!,
+            .foregroundColor: UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
+        ])
         
         [titleLabel, textField].forEach { self.addArrangedSubview($0) }
     }

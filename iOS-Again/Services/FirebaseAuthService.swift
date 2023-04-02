@@ -25,6 +25,18 @@ class FirebaseAuthService: NSObject {
         self.viewController = viewController
     }
     
+    func emailSignup(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+            guard error == nil else { return completion(error!) }
+            
+            Auth.auth().signIn(withEmail: email, password: password) { _, error in
+                guard error == nil else { return completion(error!) }
+                
+                completion(nil)
+            }
+        }
+    }
+    
     func googleSignup() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
