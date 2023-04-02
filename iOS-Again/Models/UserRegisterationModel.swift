@@ -1,22 +1,34 @@
 import UIKit
 
-struct UserRegisterationModel: Codable {
+struct UserRegisterationModel {
+    var uid: String?
     var email: String?
     var password: String?
     var nickname: String?
-    var profileImage: String?
+    var profileImage: UIImage?
+    var profileImageURL: URL?
+    var fcmToken: String?
     
     init() {
+        self.uid = nil
         self.email = nil
         self.password = nil
         self.nickname = nil
+        self.fcmToken = nil
         self.profileImage = nil
+        self.profileImageURL = nil
     }
     
-    enum CodingKeys: String, CodingKey {
-        case email = "user_id"
-        case password
-        case nickname
-        case profileImage = "user_profile_image_url"
+    func exportData() -> [String:Any] {
+        return [
+            "uid": self.uid!,
+            "email": self.email!,
+            "password": self.password,
+            "nickname": self.nickname!,
+            "profile_image_url": self.profileImageURL!.absoluteString,
+            "fcm_token": self.fcmToken!,
+            "created_at": Date(),
+            "updated_at": Date()
+        ]
     }
 }

@@ -2,7 +2,7 @@ import UIKit
 
 protocol SignupCoodinatorDelegate {
     func didDismissSignupViewController(_ coodinator: SignupCoodinator)
-    func didConfirmSignup(_ coodinator: SignupCoodinator)
+    func didConfirmSignup(_ coodinator: SignupCoodinator, userData: UserRegisterationModel)
 }
 
 class SignupCoodinator: Coodinator, SignupViewControllerDelegate {
@@ -51,9 +51,9 @@ extension SignupCoodinator: SignupAccountCoodinatorDelegate {
         self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
     }
     
-    func didConfirmSignup(_ coodinator: SignupAccountCoodinator) {
+    func didConfirmSignup(_ coodinator: SignupAccountCoodinator, userData: UserRegisterationModel) {
         self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
-        self.delegate?.didConfirmSignup(self)
+        self.delegate?.didConfirmSignup(self, userData: userData)
     }
 }
 
@@ -62,8 +62,8 @@ extension SignupCoodinator: SignupDetailCoodinatorDelegate {
         self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
     }
     
-    func didConfirmSignup(_ coodinator: SignupDetailCoodinator) {
+    func didConfirmSignup(_ coodinator: SignupDetailCoodinator, userData: UserRegisterationModel) {
         self.childCoodinators = self.childCoodinators.filter { coodinator !== $0 }
-        self.delegate?.didConfirmSignup(self)
+        self.delegate?.didConfirmSignup(self, userData: userData)
     }
 }

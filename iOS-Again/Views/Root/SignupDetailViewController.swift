@@ -2,16 +2,19 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 protocol SignupDetailViewControllerDelegate {
     func dismiss()
-    func selectImage()
-    func confirmSignup()
+    func confirmSignup(_ userData: UserRegisterationModel)
 }
 
 class SignupDetailViewController: UIViewController {
     var delegate: SignupDetailViewControllerDelegate?
+    var viewModel: SignupDetailViewModel?
     let disposeBag = DisposeBag()
+    
+    var currentUserData: UserRegisterationModel?
     
     let backButton = AGBackButton()
     let topBar = AGTopBar(title: "회원가입", subTitle: "사용자님의 정보를 입력해주세요.")
@@ -30,6 +33,7 @@ class SignupDetailViewController: UIViewController {
         imageView.backgroundColor = .lightGray
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 50
+        imageView.contentMode = .scaleAspectFit
         
         imageView.snp.makeConstraints { make in
             make.width.height.equalTo(100)
@@ -43,6 +47,8 @@ class SignupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = SignupDetailViewModel(self)
+        
         self.configureLayout()
         self.didAction()
     }
@@ -52,6 +58,8 @@ extension SignupDetailViewController {
     func configureLayout() {
         [profileImageView, nicknameTextField].forEach { self.infoStackView.addArrangedSubview($0) }
         [backButton, topBar, infoStackView, confirmButton].forEach { self.view.addSubview($0) }
+        
+        nicknameTextField.textField.delegate = self
         
         backButton.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(5)
@@ -85,10 +93,29 @@ extension SignupDetailViewController {
 //                self.delegate?.selectImage()
 //            }.disposed(by: disposeBag)
         
+        profileImageView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe (onNext: { _ in
+                self.viewModel?.tappedProfileImageView()
+            }).disposed(by: disposeBag)
+        
         confirmButton.rx.tap
             .bind {
-                self.delegate?.confirmSignup()
+                self.viewModel?.tappedConfirmButton { userData in
+                    self.delegate?.confirmSignup(userData)
+                }
             }.disposed(by: disposeBag)
+    }
+}
+
+extension SignupDetailViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

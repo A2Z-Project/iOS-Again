@@ -2,11 +2,10 @@ import UIKit
 
 protocol SignupDetailCoodinatorDelegate {
     func didDismissSignupDetailViewController(_ coodinator: SignupDetailCoodinator)
-    func didConfirmSignup(_ coodinator: SignupDetailCoodinator)
+    func didConfirmSignup(_ coodinator: SignupDetailCoodinator, userData: UserRegisterationModel)
 }
 
-class SignupDetailCoodinator: Coodinator, SignupDetailViewControllerDelegate {
-    
+class SignupDetailCoodinator: Coodinator {
     var delegate: SignupDetailCoodinatorDelegate?
     var childCoodinators: [Coodinator] = []
     
@@ -22,20 +21,19 @@ class SignupDetailCoodinator: Coodinator, SignupDetailViewControllerDelegate {
         let viewController =  SignupDetailViewController()
         
         viewController.delegate = self
+        viewController.currentUserData = userData
         viewController.view.backgroundColor = .white
         self.navigationController.pushViewController(viewController, animated: true)
     }
-    
+}
+
+extension SignupDetailCoodinator: SignupDetailViewControllerDelegate {
     func dismiss() {
         self.navigationController.popViewController(animated: true)
         self.delegate?.didDismissSignupDetailViewController(self)
     }
     
-    func selectImage() {
-        
-    }
-    
-    func confirmSignup() {
-        self.delegate?.didConfirmSignup(self)
+    func confirmSignup(_ userData: UserRegisterationModel) {
+        self.delegate?.didConfirmSignup(self, userData: userData)
     }
 }

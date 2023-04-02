@@ -48,6 +48,7 @@ class AGTextField: UIStackView {
         case .password:
             textField.keyboardType = .default
             textField.isSecureTextEntry = true
+            textField.textContentType = .newPassword
             break
         default:
             textField.keyboardType = .default

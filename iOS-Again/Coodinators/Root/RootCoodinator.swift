@@ -1,5 +1,7 @@
 import UIKit
 
+import FirebaseMessaging
+
 protocol RootCoodinatorDelegate {
     func didLoggedIn(_ coodinator: RootCoodinator)
     func didSignup(_ coodinator: RootCoodinator)
@@ -54,8 +56,30 @@ extension RootCoodinator: SignupCoodinatorDelegate {
         self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
     }
     
-    func didConfirmSignup(_ coodinator: SignupCoodinator) {
+    func didConfirmSignup(_ coodinator: SignupCoodinator, userData: UserRegisterationModel) {
         self.childCoodinators = self.childCoodinators.filter { $0 !== coodinator }
-        self.delegate?.didSignup(self)
+        
+        let storage = FirebaseStorageService()
+        let firestoreDatabase = FirebaseFirestoreDatabaseService()
+        
+        var userData = userData
+        
+        storage.uploadProfileImage(image: userData.profileImage!, pathRoot: userData.uid!) { url in
+            if let url = url {
+                userData.profileImageURL = url
+                
+                Messaging.messaging().token { token, error in
+                    if let error = error {
+                        print("Error fetching FCM registration token: \(error)")
+                      } else if let token = token {
+                          userData.fcmToken = token
+                          
+                          firestoreDatabase.registerUserData(userData) {
+                              self.delegate?.didSignup(self)
+                          }
+                      }
+                }
+            }
+        }
     }
 }

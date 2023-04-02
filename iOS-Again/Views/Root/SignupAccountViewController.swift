@@ -116,20 +116,8 @@ extension SignupAccountViewController {
                     
                     self.present(alertController, animated: true)
                 } else {
-                    self.viewModel!.tappedNextButton(email: self.emailTextField.textField.text!, password: self.passwordTextField.textField.text!) { error in
-                        if error != nil {
-                            var userData = UserRegisterationModel()
-                            
-                            userData.email = self.emailTextField.textField.text!
-                            userData.password = self.passwordTextField.textField.text!
-                            
-                            self.delegate?.confirm(userData)
-                        } else {
-                            alertController.title = "가입 오류"
-                            alertController.message = "가입 처리 중 오류가 발생했습니다.\n잠시 후에 다시 시도해주세요"
-                            
-                            self.present(alertController, animated: true)
-                        }
+                    self.viewModel!.tappedNextButton(email: self.emailTextField.textField.text!, password: self.passwordTextField.textField.text!) { userData in
+                        self.delegate?.confirm(userData)
                     }
                 }
             }).disposed(by: disposeBag)

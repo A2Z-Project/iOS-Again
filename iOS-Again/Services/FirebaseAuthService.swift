@@ -25,14 +25,20 @@ class FirebaseAuthService: NSObject {
         self.viewController = viewController
     }
     
-    func emailSignup(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    func emailSignup(email: String, password: String, completion: @escaping (AuthDataResult?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { _, error in
-            guard error == nil else { return completion(error!) }
+            guard error == nil else {
+                print(error!)
+                return completion(nil)
+            }
             
-            Auth.auth().signIn(withEmail: email, password: password) { _, error in
-                guard error == nil else { return completion(error!) }
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    print(error!)
+                    return completion(nil)
+                }
                 
-                completion(nil)
+                completion(result)
             }
         }
     }

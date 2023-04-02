@@ -36,6 +36,7 @@ class SignupViewModel {
 
 extension SignupViewModel: FirebaseAuthServiceDelegate {
     func didSNSSignup(_ result: AuthDataResult) {
+        self.userRegisterationModel.uid = result.user.uid
         self.userRegisterationModel.email = result.user.email
         self.viewController?.delegate?.didSNSSignup(userRegisterationModel)
     }
