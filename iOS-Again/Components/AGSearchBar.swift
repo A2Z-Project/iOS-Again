@@ -11,6 +11,22 @@ class AGSearchBar: UIStackView {
     var delegate: AGSearchBarDelegate?
     let disposeBag = DisposeBag()
     
+    let searchTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.backgroundColor = .white
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor(red: 34 / 255, green: 34 / 255, blue: 34 / 255, alpha: 1.0).cgColor
+        textField.layer.cornerRadius = 10
+        textField.attributedPlaceholder = NSAttributedString(string: "그룹을 검색해보세요.", attributes: [
+            .font: UIFont(type: NotoSansKR.light, size: 14)!,
+            .foregroundColor: UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
+        ])
+        textField.addLeftPadding()
+        
+        return textField
+    }()
+    
     required init() {
         super.init(frame: .zero)
         
@@ -32,22 +48,6 @@ class AGSearchBar: UIStackView {
             button.imageEdgeInsets = UIEdgeInsets(top: 7.5, left: 7.5, bottom: 7.5, right: 7.5)
             
             return button
-        }()
-        
-        let searchTextField: UITextField = {
-            let textField = UITextField()
-            
-            textField.backgroundColor = .white
-            textField.layer.borderWidth = 2
-            textField.layer.borderColor = UIColor(red: 34 / 255, green: 34 / 255, blue: 34 / 255, alpha: 1.0).cgColor
-            textField.layer.cornerRadius = 10
-            textField.attributedPlaceholder = NSAttributedString(string: "그룹을 검색해보세요.", attributes: [
-                .font: UIFont(type: NotoSansKR.light, size: 14)!,
-                .foregroundColor: UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
-            ])
-            textField.addLeftPadding()
-            
-            return textField
         }()
         
         [backButton, searchTextField].forEach { self.addArrangedSubview($0) }

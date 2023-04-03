@@ -88,11 +88,6 @@ extension SignupDetailViewController {
                 self.delegate?.dismiss()
             }.disposed(by: disposeBag)
         
-//        profileImageView.rx.tap
-//            .bind {
-//                self.delegate?.selectImage()
-//            }.disposed(by: disposeBag)
-        
         profileImageView.rx.tapGesture()
             .when(.recognized)
             .subscribe (onNext: { _ in

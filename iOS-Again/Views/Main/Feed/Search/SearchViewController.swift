@@ -25,6 +25,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.searchBar.searchTextField.delegate = self
+        
         self.configureLayout()
         self.didAction()
     }
@@ -54,6 +56,17 @@ extension SearchViewController {
 extension SearchViewController: AGSearchBarDelegate {
     func tapBackButton() {
         self.delegate?.dismissViewController()
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

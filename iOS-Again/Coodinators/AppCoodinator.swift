@@ -12,12 +12,11 @@ class AppCoodinator: Coodinator, RootCoodinatorDelegate {
     }
     
     func start() {
-        self.showRootViewController()
-//        if let currentUser = Auth.auth().currentUser {
-//            self.showMainViewController()
-//        } else {
-//            self.showRootViewController()
-//        }
+        if let currentUser = Auth.auth().currentUser {
+            self.showMainViewController()
+        } else {
+            self.showRootViewController()
+        }
     }
     
     func showMainViewController() {
