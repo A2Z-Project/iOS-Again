@@ -25,44 +25,34 @@ class ProfileViewController: UIViewController {
         stackView.alignment = .center
         stackView.spacing = 10
         
-        let profileImageView: UIImageView = {
-            let view = UIImageView()
+        return stackView
+    }()
+    let profileImageView: UIImageView = {
+        let view = UIImageView()
 
-            view.backgroundColor = UIColor(red: 153 / 255, green: 238 / 255, blue: 1, alpha: 1)
-            view.layer.masksToBounds = true
-            view.layer.cornerRadius = 75 / 2
-            
-            return view
-        }()
-        let profileInfoView: UIStackView = {
-            let stackView = UIStackView()
-            
-            stackView.axis = .vertical
-            stackView.alignment = .leading
-            
-            let nameLabel: UILabel = {
-                let label = UILabel()
-                
-                label.text = "User Name"
-                label.font = UIFont(type: NotoSansKR.medium, size: 16)
-                
-                return label
-            }()
-            let groupTag = AGFeedItemGroupTag("Group Name")
-            
-            [ nameLabel, groupTag ].forEach { stackView.addArrangedSubview($0) }
-            
-            return stackView
-        }()
+        view.backgroundColor = UIColor(red: 153 / 255, green: 238 / 255, blue: 1, alpha: 1)
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 75 / 2
         
-        [ profileImageView, profileInfoView ].forEach { stackView.addArrangedSubview($0) }
+        return view
+    }()
+    let profileInfoView: UIStackView = {
+        let stackView = UIStackView()
         
-        profileImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(75)
-        }
+        stackView.axis = .vertical
+        stackView.alignment = .leading
         
         return stackView
     }()
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "User Name"
+        label.font = UIFont(type: NotoSansKR.medium, size: 16)
+        
+        return label
+    }()
+    let groupTag = AGFeedItemGroupTag("Group Name")
     let menuView: UIStackView = {
         let stackView = UIStackView()
         
@@ -116,6 +106,14 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController {
     func configureLayout() {
+        nameLabel.text = viewModel?.userData.name
+        if let profileImageURL = viewModel?.userData.profileImageURL {
+            profileImageView.load(url: URL(string: profileImageURL)!)
+        }
+        
+        [ nameLabel, groupTag ].forEach { profileInfoView.addArrangedSubview($0) }
+        [ profileImageView, profileInfoView ].forEach { profileView.addArrangedSubview($0) }
+        
         [ profileView, menuView ].forEach { self.view.addSubview($0) }
         [ editProfileButton, divider, optionButton ].forEach { menuView.addArrangedSubview($0) }
         menuView.addArrangedSubview({
@@ -125,6 +123,10 @@ extension ProfileViewController {
             
             return spacer
         }())
+        
+        profileImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(75)
+        }
         
         profileView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(15)

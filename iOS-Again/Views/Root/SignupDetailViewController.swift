@@ -6,15 +6,12 @@ import RxGesture
 
 protocol SignupDetailViewControllerDelegate {
     func dismiss()
-    func confirmSignup(_ userData: UserRegisterationModel)
+    func confirmSignup()
 }
 
 class SignupDetailViewController: UIViewController {
-    var delegate: SignupDetailViewControllerDelegate?
     var viewModel: SignupDetailViewModel?
     let disposeBag = DisposeBag()
-    
-    var currentUserData: UserRegisterationModel?
     
     let backButton = AGBackButton()
     let topBar = AGTopBar(title: "회원가입", subTitle: "사용자님의 정보를 입력해주세요.")
@@ -44,10 +41,19 @@ class SignupDetailViewController: UIViewController {
     let nicknameTextField = AGTextField(title: "이름(닉네임)", placeholder: "이름(닉네임)을 입력해주세요.")
     let confirmButton = AGButton(title: "회원가입 완료")
     
+    init(userRegisterationModel: UserRegisterationModel) {
+        self.viewModel = SignupDetailViewModel(userRegisterationModel: userRegisterationModel)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = SignupDetailViewModel(self)
+        self.viewModel?.viewController = self
         
         self.configureLayout()
         self.didAction()
@@ -85,7 +91,7 @@ extension SignupDetailViewController {
     func didAction() {
         backButton.rx.tap
             .bind {
-                self.delegate?.dismiss()
+                self.viewModel?.dismiss()
             }.disposed(by: disposeBag)
         
         profileImageView.rx.tapGesture()
@@ -96,9 +102,7 @@ extension SignupDetailViewController {
         
         confirmButton.rx.tap
             .bind {
-                self.viewModel?.tappedConfirmButton { userData in
-                    self.delegate?.confirmSignup(userData)
-                }
+                self.viewModel?.confirmSignup()
             }.disposed(by: disposeBag)
     }
 }

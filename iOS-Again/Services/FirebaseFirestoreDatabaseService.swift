@@ -14,6 +14,12 @@ class FirebaseFirestoreDatabaseService {
     func registerUserData(_ userData: UserRegisterationModel, completion: @escaping () -> Void) {
         db.collection("users").document(userData.uid!).setData(userData.exportData()) { err in
             if let err = err { } else {
+                let user = User()
+                user.name = userData.nickname!
+                
+                let realm = RealmStorageService()
+                realm.writeUser(data: user)
+                
                 completion()
             }
         }

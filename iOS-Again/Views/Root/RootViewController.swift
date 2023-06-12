@@ -3,14 +3,14 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol RootViewControllerCoodinator {
-    func showSignInViewController()
+protocol RootViewControllerDelegate {
+    func showSigninViewController()
     func showSignupViewController()
 }
 
 class RootViewController: UIViewController, UITextViewDelegate {
     
-    var delegate: RootViewControllerCoodinator?
+    var viewModel: RootViewModel?
     let disposeBag = DisposeBag()
     
     let titleStackView: UIStackView = {
@@ -101,6 +101,8 @@ class RootViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.viewModel = RootViewModel(self)
+        
         self.configureLayout()
         self.didAction()
     }
@@ -133,12 +135,12 @@ private extension RootViewController {
     func didAction() {
         loginButton.rx.tap
             .bind {
-                self.delegate?.showSignInViewController()
+                self.viewModel?.showSigninViewController()
             }.disposed(by: disposeBag)
         
         signupButton.rx.tap
             .bind {
-                self.delegate?.showSignupViewController()
+                self.viewModel?.showSignupViewController()
             }.disposed(by: disposeBag)
     }
 }

@@ -31,8 +31,9 @@ class EditProfileViewController: UIViewController {
         return stackView
     }()
     let profileImageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: .init(systemName: "person.fill"))
         
+        imageView.tintColor = .white
         imageView.backgroundColor = .lightGray
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 50
@@ -62,6 +63,8 @@ extension EditProfileViewController {
     func configureLayout() {
         self.view.backgroundColor = .white
         
+//        profileImageView.image = self.viewModel?.userData.profileImageURL ?? UIImage(systemName: "person.fill")
+        
         [profileImageView, nicknameTextField].forEach { self.infoStackView.addArrangedSubview($0) }
         [backButton, topBar, infoStackView, confirmButton].forEach { self.view.addSubview($0) }
         
@@ -90,6 +93,12 @@ extension EditProfileViewController {
         backButton.rx.tap
             .bind {
                 self.viewModel?.didTapBackButton()
+            }.disposed(by: disposeBag)
+        
+        profileImageView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                self.viewModel?.didTapProfileImageView()
             }.disposed(by: disposeBag)
         
         confirmButton.rx.tap

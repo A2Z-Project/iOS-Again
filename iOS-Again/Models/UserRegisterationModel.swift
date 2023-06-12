@@ -23,10 +23,10 @@ struct UserRegisterationModel {
         return [
             "uid": self.uid!,
             "email": self.email!,
-            "password": self.password,
+            "password": self.password!,
             "nickname": self.nickname!,
-            "profile_image_url": self.profileImageURL!.absoluteString,
-            "fcm_token": self.fcmToken!,
+            "profile_image_url": self.profileImageURL?.absoluteString ?? nil,
+            "fcm_token": self.fcmToken ?? nil,
             "created_at": Date(),
             "updated_at": Date()
         ]

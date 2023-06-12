@@ -5,11 +5,10 @@ import RxCocoa
 
 protocol SignupAccountViewControllerDelegate {
     func dismiss()
-    func confirm(_ userData: UserRegisterationModel)
+    func confirm(email: String, password: String)
 }
 
 class SignupAccountViewController: UIViewController {
-    var delegate: SignupAccountViewControllerDelegate?
     var viewModel: SignupAccountViewModel?
     let disposeBag = DisposeBag()
     
@@ -72,7 +71,7 @@ extension SignupAccountViewController {
     func didAction() {
         backButton.rx.tap
             .bind {
-                self.delegate?.dismiss()
+                self.viewModel?.dismiss()
             }.disposed(by: disposeBag)
         
         emailTextField.textField.rx.text
@@ -116,9 +115,7 @@ extension SignupAccountViewController {
                     
                     self.present(alertController, animated: true)
                 } else {
-                    self.viewModel!.tappedNextButton(email: self.emailTextField.textField.text!, password: self.passwordTextField.textField.text!) { userData in
-                        self.delegate?.confirm(userData)
-                    }
+                    self.viewModel?.confirm(email: self.emailTextField.textField.text!, password: self.passwordTextField.textField.text!)
                 }
             }).disposed(by: disposeBag)
     }

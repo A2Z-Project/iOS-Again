@@ -17,13 +17,7 @@ class FeedViewController: UIViewController {
         
         return tableView
     }()
-    let feeds: [AGFeedItem] = [
-        AGFeedItem(),
-        AGFeedItem(),
-        AGFeedItem(),
-        AGFeedItem(),
-        AGFeedItem()
-    ]
+    let feeds: [AGFeedItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +51,7 @@ extension FeedViewController {
 }
 
 extension FeedViewController: AGHeaderDelegate {
-    func tapSearchButton() {
+    func didTapWriteFeedButton() {
         self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 }

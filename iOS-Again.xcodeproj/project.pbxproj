@@ -56,6 +56,13 @@
 		85D7B7A32A36256B007BA6FE /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7A22A36256B007BA6FE /* EditProfileViewModel.swift */; };
 		85D7B7A52A362866007BA6FE /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7A42A362866007BA6FE /* OptionViewController.swift */; };
 		85D7B7A72A3628C1007BA6FE /* OptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7A62A3628C1007BA6FE /* OptionViewModel.swift */; };
+		85D7B7A92A36DAA0007BA6FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7A82A36DAA0007BA6FE /* User.swift */; };
+		85D7B7AB2A371EAC007BA6FE /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7AA2A371EAC007BA6FE /* RootViewModel.swift */; };
+		85D7B7AE2A3779D7007BA6FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 85D7B7AD2A3779D7007BA6FE /* Realm */; };
+		85D7B7B02A3779D7007BA6FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 85D7B7AF2A3779D7007BA6FE /* RealmSwift */; };
+		85D7B7B22A377F1E007BA6FE /* RealmStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7B12A377F1E007BA6FE /* RealmStorageService.swift */; };
+		85D7B7B42A3787BA007BA6FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7B32A3787BA007BA6FE /* UIImageView.swift */; };
+		85D7B7B62A378BCA007BA6FE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D7B7B52A378BCA007BA6FE /* Group.swift */; };
 		85E4FA5229D4404F001F5341 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E4FA5129D4404F001F5341 /* SignupViewModel.swift */; };
 		85E4FA5529D44605001F5341 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 85E4FA5429D44605001F5341 /* FirebaseAuth */; };
 		85E4FA5829D446AE001F5341 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 85E4FA5729D446AE001F5341 /* GoogleSignIn */; };
@@ -114,6 +121,11 @@
 		85D7B7A22A36256B007BA6FE /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		85D7B7A42A362866007BA6FE /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		85D7B7A62A3628C1007BA6FE /* OptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewModel.swift; sourceTree = "<group>"; };
+		85D7B7A82A36DAA0007BA6FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		85D7B7AA2A371EAC007BA6FE /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		85D7B7B12A377F1E007BA6FE /* RealmStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorageService.swift; sourceTree = "<group>"; };
+		85D7B7B32A3787BA007BA6FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		85D7B7B52A378BCA007BA6FE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		85E4FA5129D4404F001F5341 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		85E4FA5B29D449F1001F5341 /* iOS-Again.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-Again.entitlements"; sourceTree = "<group>"; };
 		85E4FA5E29D4FD73001F5341 /* SignupAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAccountViewModel.swift; sourceTree = "<group>"; };
@@ -136,9 +148,11 @@
 				85E4FA5829D446AE001F5341 /* GoogleSignIn in Frameworks */,
 				853B65DB29AF47D4005A5B34 /* RxSwift in Frameworks */,
 				853B65D929AF47D4005A5B34 /* RxCocoa in Frameworks */,
+				85D7B7B02A3779D7007BA6FE /* RealmSwift in Frameworks */,
 				85E4FA5A29D446AE001F5341 /* GoogleSignInSwift in Frameworks */,
 				85E73ABE2982DD67008B0148 /* SnapKit in Frameworks */,
 				85465E1B29D9FD9000B39DEA /* FirebaseFirestoreSwift in Frameworks */,
+				85D7B7AE2A3779D7007BA6FE /* Realm in Frameworks */,
 				85465E1929D9FD9000B39DEA /* FirebaseFirestore in Frameworks */,
 				85465E1529D9F94400B39DEA /* FirebaseStorage in Frameworks */,
 				85E4FA5529D44605001F5341 /* FirebaseAuth in Frameworks */,
@@ -169,11 +183,11 @@
 		85C5F83329B99C0800B62A06 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				853B65E029AF6AC7005A5B34 /* SignupViewController.swift */,
 				85E73AA92982DC1F008B0148 /* RootViewController.swift */,
-				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
-				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
+				853B65E029AF6AC7005A5B34 /* SignupViewController.swift */,
 				853B65E829B01CF4005A5B34 /* SignupAccountViewController.swift */,
+				853B65E429B00D60005A5B34 /* SignupDetailViewController.swift */,
+				853B65C329AE016D005A5B34 /* SigninViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -247,6 +261,7 @@
 		85E4FA5029D43FB3001F5341 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				85D7B7AA2A371EAC007BA6FE /* RootViewModel.swift */,
 				85E4FA5129D4404F001F5341 /* SignupViewModel.swift */,
 				85E4FA5E29D4FD73001F5341 /* SignupAccountViewModel.swift */,
 				85465E0C29D9E4BE00B39DEA /* SignupDetailViewModel.swift */,
@@ -306,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				853B65EC29B093C2005A5B34 /* UserRegisterationModel.swift */,
+				85D7B7A82A36DAA0007BA6FE /* User.swift */,
+				85D7B7B52A378BCA007BA6FE /* Group.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +336,7 @@
 				853B65C129ADFF65005A5B34 /* UIButton.swift */,
 				853B65C529AE029C005A5B34 /* Coodinator.swift */,
 				853B65D329AF0935005A5B34 /* UITextField.swift */,
+				85D7B7B32A3787BA007BA6FE /* UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -358,6 +376,7 @@
 				8570108129D8068400FFFD04 /* FirebaseAuthService.swift */,
 				85465E1129D9EDA800B39DEA /* FirebaseStorageService.swift */,
 				85465E1629D9FD7900B39DEA /* FirebaseFirestoreDatabaseService.swift */,
+				85D7B7B12A377F1E007BA6FE /* RealmStorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,6 +409,8 @@
 				85465E1829D9FD9000B39DEA /* FirebaseFirestore */,
 				85465E1A29D9FD9000B39DEA /* FirebaseFirestoreSwift */,
 				85465E1C29DA058E00B39DEA /* FirebaseMessaging */,
+				85D7B7AD2A3779D7007BA6FE /* Realm */,
+				85D7B7AF2A3779D7007BA6FE /* RealmSwift */,
 			);
 			productName = "iOS-Again";
 			productReference = 85E73AA22982DC1F008B0148 /* iOS-Again.app */;
@@ -425,6 +446,7 @@
 				85E4FA5329D44605001F5341 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				85E4FA5629D446AE001F5341 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				85465E0E29D9E86700B39DEA /* XCRemoteSwiftPackageReference "RxGesture" */,
+				85D7B7AC2A3779D7007BA6FE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 85E73AA32982DC1F008B0148 /* Products */;
 			projectDirPath = "";
@@ -462,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E73AAA2982DC1F008B0148 /* RootViewController.swift in Sources */,
+				85D7B7B42A3787BA007BA6FE /* UIImageView.swift in Sources */,
 				85465E1229D9EDA800B39DEA /* FirebaseStorageService.swift in Sources */,
 				853B65C629AE029C005A5B34 /* Coodinator.swift in Sources */,
 				853B65E129AF6AC7005A5B34 /* SignupViewController.swift in Sources */,
@@ -477,11 +500,15 @@
 				853B65E929B01CF4005A5B34 /* SignupAccountViewController.swift in Sources */,
 				85C5F84829BA233200B62A06 /* GroupGuideModalViewController.swift in Sources */,
 				8552BC0429DAB4AD00DC8D7E /* MainViewModel.swift in Sources */,
+				85D7B7B22A377F1E007BA6FE /* RealmStorageService.swift in Sources */,
+				85D7B7B62A378BCA007BA6FE /* Group.swift in Sources */,
 				85E73AA62982DC1F008B0148 /* AppDelegate.swift in Sources */,
 				853B65ED29B093C2005A5B34 /* UserRegisterationModel.swift in Sources */,
+				85D7B7A92A36DAA0007BA6FE /* User.swift in Sources */,
 				8513B24529B88DAC000FE8DD /* MainViewController.swift in Sources */,
 				853C7FF629AAB41500A889A9 /* UIFont.swift in Sources */,
 				853B65D429AF0935005A5B34 /* UITextField.swift in Sources */,
+				85D7B7AB2A371EAC007BA6FE /* RootViewModel.swift in Sources */,
 				85D7B7A72A3628C1007BA6FE /* OptionViewModel.swift in Sources */,
 				85D7B7A32A36256B007BA6FE /* EditProfileViewModel.swift in Sources */,
 				85E73AA82982DC1F008B0148 /* SceneDelegate.swift in Sources */,
@@ -758,6 +785,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		85D7B7AC2A3779D7007BA6FE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		85E4FA5329D44605001F5341 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -819,6 +854,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 85E4FA5329D44605001F5341 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		85D7B7AD2A3779D7007BA6FE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85D7B7AC2A3779D7007BA6FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		85D7B7AF2A3779D7007BA6FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85D7B7AC2A3779D7007BA6FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		85E4FA5429D44605001F5341 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

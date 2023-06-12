@@ -11,10 +11,11 @@ import RxCocoa
 import RxSwift
 
 class SignupDetailViewModel: NSObject {
-    private weak var viewController: SignupDetailViewController?
+    weak var viewController: SignupDetailViewController?
+    var userRegisterationModel: UserRegisterationModel
     
-    init(_ viewController: SignupDetailViewController) {
-        self.viewController = viewController
+    init(userRegisterationModel: UserRegisterationModel) {
+        self.userRegisterationModel = userRegisterationModel
     }
     
     func tappedProfileImageView() {
@@ -25,22 +26,6 @@ class SignupDetailViewModel: NSObject {
         imagePicker.allowsEditing = true
         
         self.viewController?.present(imagePicker, animated: true)
-    }
-    
-    func tappedConfirmButton(completion: @escaping (UserRegisterationModel) -> Void) {
-        if self.viewController!.nicknameTextField.textField.text!.isEmpty {
-            let alertController = UIAlertController(title: "입력 오류", message: "닉네임을 입력해주세요", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "확인", style: .cancel))
-            
-            self.viewController!.present(alertController, animated: true)
-        } else {
-            var currentUserData: UserRegisterationModel = self.viewController!.currentUserData!
-            
-            currentUserData.nickname = self.viewController!.nicknameTextField.textField.text
-            currentUserData.profileImage = self.viewController!.profileImageView.image
-            
-            completion(currentUserData)
-        }
     }
 }
 
@@ -54,6 +39,40 @@ extension SignupDetailViewModel: UIImagePickerControllerDelegate, UINavigationCo
             self.viewController?.profileImageView.image = image
             
             self.viewController?.dismiss(animated: true)
+        }
+    }
+}
+
+extension SignupDetailViewModel: SignupDetailViewControllerDelegate {
+    func dismiss() {
+        self.viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func confirmSignup() {
+        if self.viewController!.nicknameTextField.textField.text!.isEmpty {
+            let alertController = UIAlertController(title: "입력 오류", message: "닉네임을 입력해주세요", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: .cancel))
+            
+            self.viewController!.present(alertController, animated: true)
+        } else {
+            self.userRegisterationModel.nickname = self.viewController!.nicknameTextField.textField.text
+            self.userRegisterationModel.profileImage = self.viewController!.profileImageView.image
+            
+            if let profileImage = self.userRegisterationModel.profileImage {
+                FirebaseStorageService().uploadProfileImage(image: profileImage, pathRoot: "") { url in
+                    self.userRegisterationModel.profileImageURL = url
+                    
+                    FirebaseFirestoreDatabaseService().registerUserData(self.userRegisterationModel) {
+                        self.viewController?.navigationController?.popToRootViewController(animated: true)
+                        self.viewController?.navigationController?.pushViewController(MainViewController(), animated: true)
+                    }
+                }
+            } else {
+                FirebaseFirestoreDatabaseService().registerUserData(self.userRegisterationModel) {
+                    self.viewController?.navigationController?.popToRootViewController(animated: true)
+                    self.viewController?.navigationController?.pushViewController(MainViewController(), animated: true)
+                }
+            }
         }
     }
 }

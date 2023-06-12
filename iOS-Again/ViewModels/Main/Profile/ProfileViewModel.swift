@@ -10,6 +10,16 @@ import UIKit
 
 class ProfileViewModel {
     var navigation: UINavigationController?
+    var userData: User
+    
+    init() {
+        let realm = RealmStorageService()
+        
+        self.userData = realm.getUser()!
+        
+        print(self.userData)
+    }
+    
 }
 
 extension ProfileViewModel: ProfileViewControllerDelegate {

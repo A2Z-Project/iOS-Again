@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 protocol AGHeaderDelegate {
-    func tapSearchButton()
+    func didTapWriteFeedButton()
 }
 
 class AGHeader: UIStackView {
@@ -40,7 +40,7 @@ class AGHeader: UIStackView {
         let searchButton: UIButton = {
             let button = UIButton()
             
-            button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+            button.setImage(UIImage(systemName: "plus"), for: .normal)
             button.tintColor = .black
             button.setBackgroundColor(UIColor(red: 16 / 255, green: 128 / 255, blue: 128 / 255, alpha: 0.5), for: .normal)
             
@@ -75,7 +75,7 @@ class AGHeader: UIStackView {
         
         searchButton.rx.tap
             .bind {
-                self.delegate?.tapSearchButton()
+                self.delegate?.didTapWriteFeedButton()
             }.disposed(by: disposeBag)
     }
     

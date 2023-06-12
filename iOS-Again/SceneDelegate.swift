@@ -19,7 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.overrideUserInterfaceStyle = .light
             self.window?.backgroundColor = .white
             
-            let rootViewController = UINavigationController(rootViewController: MainViewController())
+            let realm = RealmStorageService()
+            let rootViewController: UINavigationController
+            let user = realm.getUser()
+            
+            if user == nil {
+                rootViewController = UINavigationController(rootViewController: RootViewController())
+            } else {
+                rootViewController = UINavigationController(rootViewController: MainViewController())
+            }
+            
             rootViewController.isNavigationBarHidden = true
             self.window?.rootViewController = rootViewController
             

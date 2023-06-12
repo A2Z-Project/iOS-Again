@@ -9,15 +9,12 @@ import FirebaseAuth
 
 protocol SignupViewControllerDelegate {
     func dismiss()
-    func enterEmailSignup(_ userData: UserRegisterationModel)
-    func didSNSSignup(_ userData: UserRegisterationModel)
+    func didTapSignupButton(_ type: SignupType)
 }
 
 class SignupViewController: UIViewController {
     
-    var delegate: SignupViewControllerDelegate?
     private var viewModel: SignupViewModel?
-    let userRegisterationViewModel = UserRegisterationModel()
     let disposeBag = DisposeBag()
     fileprivate var currentNonce: String?
     
@@ -86,22 +83,22 @@ extension SignupViewController {
     func didAction() {
         backButton.rx.tap
             .bind {
-                self.delegate?.dismiss()
+                self.viewModel?.dismiss()
             }.disposed(by: disposeBag)
         
         emailSignupButton.rx.tap
             .bind {
-                self.delegate?.enterEmailSignup(UserRegisterationModel())
+                self.viewModel?.didTapSignupButton(.email)
             }.disposed(by: disposeBag)
         
         googleSignupButton.rx.tap
             .bind {
-                self.viewModel!.tappedGoogleSignupButton()
+                self.viewModel?.didTapSignupButton(.google)
             }.disposed(by: disposeBag)
         
         appleSignupButton.rx.tap
             .bind {
-                self.viewModel!.tappedAppleSignupButton()
+                self.viewModel?.didTapSignupButton(.apple)
             }.disposed(by: disposeBag)
     }
 }

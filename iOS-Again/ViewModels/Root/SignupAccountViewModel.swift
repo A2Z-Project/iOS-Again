@@ -13,7 +13,7 @@ import RxRelay
 import FirebaseAuth
 
 struct SignupAccountViewModel {
-    private weak var viewController: UIViewController?
+    private weak var viewController: SignupAccountViewController?
     private var authService: FirebaseAuthService?
     
     let emailTextRelay = BehaviorRelay<String>(value: "")
@@ -22,7 +22,7 @@ struct SignupAccountViewModel {
     
     let disposeBag = DisposeBag()
     
-    init(_ viewController: UIViewController) {
+    init(_ viewController: SignupAccountViewController) {
         self.viewController = viewController
         self.authService = FirebaseAuthService(viewController)
     }
@@ -50,8 +50,14 @@ struct SignupAccountViewModel {
             return $0 && $1 && $2
         }
     }
+}
+
+extension SignupAccountViewModel: SignupAccountViewControllerDelegate {
+    func dismiss() {
+        self.viewController?.navigationController?.popViewController(animated: true)
+    }
     
-    func tappedNextButton(email: String, password: String, completion: @escaping (UserRegisterationModel) -> Void) {
+    func confirm(email: String, password: String) {
         self.authService?.emailSignup(email: email, password: password) { result in
             if result != nil {
                 var userData = UserRegisterationModel()
@@ -60,7 +66,7 @@ struct SignupAccountViewModel {
                 userData.email = email
                 userData.password = password
                 
-                completion(userData)
+                self.viewController?.navigationController?.pushViewController(SignupDetailViewController(userRegisterationModel: userData), animated: true)
             } else {
                 let alertController = UIAlertController(title: "가입 오류", message: "가입 처리 중 오류가 발생했습니다.\n잠시 후에 다시 시도해주세요", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "확인", style: .cancel))
