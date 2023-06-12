@@ -1,6 +1,5 @@
 import UIKit
 import SnapKit
-import SwiftUI
 import RxSwift
 import RxCocoa
 
@@ -106,13 +105,3 @@ extension SignupViewController {
             }.disposed(by: disposeBag)
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct SignupViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        SignupViewController().showPreview(.iPhone12Pro)
-    }
-}
-#endif

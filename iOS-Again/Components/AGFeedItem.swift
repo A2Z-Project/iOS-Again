@@ -64,12 +64,9 @@ class AGFeedItem: UITableViewCell {
                         stackView.alignment = .leading
                         stackView.spacing = 5
                         
-                        let groupTags: [AGFeedItemGroupTag] = [
-                            AGFeedItemGroupTag("Group Name"),
-                            AGFeedItemGroupTag("Group Name")
-                        ]
+                        let groupTag = AGFeedItemGroupTag("Group Name")
                         
-                        groupTags.forEach { stackView.addArrangedSubview($0) }
+                        stackView.addArrangedSubview(groupTag)
                         stackView.addArrangedSubview({
                             let spacer = UIView()
                             
@@ -209,7 +206,7 @@ class AGFeedItem: UITableViewCell {
     }
 }
 
-private class AGFeedItemGroupTag: UILabel {
+class AGFeedItemGroupTag: UILabel {
     required init(_ text: String) {
         super.init(frame: .zero)
         

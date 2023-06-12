@@ -3,12 +3,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol FeedViewControllerDelegate {
-    func showSearchViewController()
-}
-
 class FeedViewController: UIViewController {
-    var delegate: FeedViewControllerDelegate?
     let disposeBag = DisposeBag()
     
     let header = AGHeader()
@@ -40,7 +35,7 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController {
     func configureLayout() {
-        [header, feedView].forEach { self.view.addSubview($0) }
+        [header, feedView].forEach{ self.view.addSubview($0) }
         
         header.delegate = self
         header.snp.makeConstraints { make in
@@ -63,7 +58,7 @@ extension FeedViewController {
 
 extension FeedViewController: AGHeaderDelegate {
     func tapSearchButton() {
-        self.delegate?.showSearchViewController()
+        self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 }
 
@@ -100,13 +95,3 @@ extension FeedViewController: AGFeedItemDelegate {
         
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-class FeedViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        FeedViewController().showPreview()
-    }
-}
-#endif

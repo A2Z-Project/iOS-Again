@@ -3,13 +3,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol SearchViewControllerDelegate {
-    func dismissViewController()
-}
-
 class SearchViewController: UIViewController {
-    var delegate: SearchViewControllerDelegate?
-    
     let searchBar = AGSearchBar()
     let searchResultTableView: UITableView = {
         let tableView = UITableView()
@@ -55,7 +49,7 @@ extension SearchViewController {
 
 extension SearchViewController: AGSearchBarDelegate {
     func tapBackButton() {
-        self.delegate?.dismissViewController()
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -80,13 +74,3 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-class SearchViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        SearchViewController().showPreview()
-    }
-}
-#endif

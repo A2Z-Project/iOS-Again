@@ -134,13 +134,3 @@ extension SignupAccountViewController: UITextFieldDelegate {
         return true
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-class SignupAccountViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        SignupAccountViewController().showPreview()
-    }
-}
-#endif

@@ -1,23 +1,26 @@
-import UIKit
-import SnapKit
-import RxSwift
-import RxCocoa
-import RxGesture
+//
+//  EditProfileViewController.swift
+//  iOS-Again
+//
+//  Created by DDang on 2023/06/12.
+//
 
-protocol SignupDetailViewControllerDelegate {
-    func dismiss()
-    func confirmSignup(_ userData: UserRegisterationModel)
+import Foundation
+import UIKit
+import RxSwift
+
+protocol EditProfileViewControllerDelegate {
+    func didTapBackButton()
+    func didTapProfileImageView()
+    func didTapConfirmButton()
 }
 
-class SignupDetailViewController: UIViewController {
-    var delegate: SignupDetailViewControllerDelegate?
-    var viewModel: SignupDetailViewModel?
+class EditProfileViewController: UIViewController {
+    var viewModel: EditProfileViewModel?
     let disposeBag = DisposeBag()
     
-    var currentUserData: UserRegisterationModel?
-    
     let backButton = AGBackButton()
-    let topBar = AGTopBar(title: "회원가입", subTitle: "사용자님의 정보를 입력해주세요.")
+    let topBar = AGTopBar(title: "프로필 수정", subTitle: "수정할 사용자님의 정보를 입력해주세요.")
     let infoStackView: UIStackView = {
         let stackView = UIStackView()
         
@@ -42,24 +45,25 @@ class SignupDetailViewController: UIViewController {
         return imageView
     }()
     let nicknameTextField = AGTextField(title: "이름(닉네임)", placeholder: "이름(닉네임)을 입력해주세요.")
-    let confirmButton = AGButton(title: "회원가입 완료")
+    let confirmButton = AGButton(title: "수정 완료")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = SignupDetailViewModel(self)
+        self.viewModel = EditProfileViewModel()
+        self.viewModel?.navigation = self.navigationController
         
         self.configureLayout()
         self.didAction()
     }
 }
 
-extension SignupDetailViewController {
+extension EditProfileViewController {
     func configureLayout() {
+        self.view.backgroundColor = .white
+        
         [profileImageView, nicknameTextField].forEach { self.infoStackView.addArrangedSubview($0) }
         [backButton, topBar, infoStackView, confirmButton].forEach { self.view.addSubview($0) }
-        
-        nicknameTextField.textField.delegate = self
         
         backButton.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(5)
@@ -85,31 +89,12 @@ extension SignupDetailViewController {
     func didAction() {
         backButton.rx.tap
             .bind {
-                self.delegate?.dismiss()
+                self.viewModel?.didTapBackButton()
             }.disposed(by: disposeBag)
-        
-        profileImageView.rx.tapGesture()
-            .when(.recognized)
-            .subscribe (onNext: { _ in
-                self.viewModel?.tappedProfileImageView()
-            }).disposed(by: disposeBag)
         
         confirmButton.rx.tap
             .bind {
-                self.viewModel?.tappedConfirmButton { userData in
-                    self.delegate?.confirmSignup(userData)
-                }
+                self.viewModel?.didTapConfirmButton()
             }.disposed(by: disposeBag)
-    }
-}
-
-extension SignupDetailViewController: UITextFieldDelegate {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

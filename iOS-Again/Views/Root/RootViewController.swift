@@ -1,4 +1,3 @@
-import SwiftUI
 import UIKit
 import SnapKit
 import RxSwift
@@ -143,13 +142,3 @@ private extension RootViewController {
             }.disposed(by: disposeBag)
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct ViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        RootViewController().showPreview(.iPhone12Pro)
-    }
-}
-#endif
