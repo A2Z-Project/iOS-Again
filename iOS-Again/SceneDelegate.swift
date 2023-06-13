@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let rootViewController: UINavigationController
             let user = realm.getUser()
             
+            /// Local에 저장된 사용자 정보에 따라 rootView를 분기
             if user == nil {
                 rootViewController = UINavigationController(rootViewController: RootViewController())
             } else {

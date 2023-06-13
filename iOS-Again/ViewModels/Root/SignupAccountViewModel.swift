@@ -16,8 +16,11 @@ struct SignupAccountViewModel {
     private weak var viewController: SignupAccountViewController?
     private var authService: FirebaseAuthService?
     
+    /// 이메일 Textfield Text
     let emailTextRelay = BehaviorRelay<String>(value: "")
+    /// 비밀번호 Textfield Text
     let passwordTextRelay = BehaviorRelay<String>(value: "")
+    /// 비밀번호 확인 Textfield Text
     let passwordConfirmTextRelay = BehaviorRelay<String>(value: "")
     
     let disposeBag = DisposeBag()
@@ -27,24 +30,28 @@ struct SignupAccountViewModel {
         self.authService = FirebaseAuthService(viewController)
     }
     
+    /// 이메일 Textfield Text Validation
     func emailValidate() -> Observable<Bool> {
         return emailTextRelay.asObservable().map { email in
             return email.count > 0 && email.contains("@") && email.contains(".")
         }
     }
     
+    /// 패스워드 Textfield Text Validation
     func passwordValidate() -> Observable<Bool> {
         return passwordTextRelay.asObservable().map { password in
             return password.count >= 8
         }
     }
     
+    /// 패스워드 확인 Textfield Text Validation
     func passwordConfirmValidate() -> Observable<Bool> {
         return Observable.combineLatest(passwordValidate(), passwordTextRelay, passwordConfirmTextRelay).map { isPasswordValid, password, passwordConfirm in
             return isPasswordValid && password == passwordConfirm
         }
     }
     
+    /// 이메일, 패스워드, 패스워드 확인 Validation
     func isValid() -> Observable<Bool> {
         return Observable.combineLatest(emailValidate(), passwordValidate(), passwordConfirmValidate()).map {
             return $0 && $1 && $2

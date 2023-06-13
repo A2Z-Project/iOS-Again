@@ -13,6 +13,7 @@ enum AllertaStencil: String {
     case regular = "AllertaStencil-Regular"
 }
 
+// TODO: Again Component Package로 전환 필요.
 extension UIFont {
     convenience init?(type: NotoSansKR, size: CGFloat) {
         self.init(name: type.rawValue, size: size)

@@ -5,6 +5,10 @@ import RxCocoa
 
 protocol SignupAccountViewControllerDelegate {
     func dismiss()
+    /// 이메일, 비밀번호 입력 완료시 호출
+    /// - Parameters:
+    ///     - email: 이메일 주소
+    ///     - password: 비밀번호 rawString
     func confirm(email: String, password: String)
 }
 

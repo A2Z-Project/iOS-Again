@@ -13,7 +13,6 @@
 		853B65C029ADE714005A5B34 /* Snapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65BF29ADE714005A5B34 /* Snapkit.swift */; };
 		853B65C229ADFF65005A5B34 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C129ADFF65005A5B34 /* UIButton.swift */; };
 		853B65C429AE016D005A5B34 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C329AE016D005A5B34 /* SigninViewController.swift */; };
-		853B65C629AE029C005A5B34 /* Coodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65C529AE029C005A5B34 /* Coodinator.swift */; };
 		853B65CE29AE4C86005A5B34 /* AGTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65CD29AE4C86005A5B34 /* AGTopBar.swift */; };
 		853B65D029AEFF3C005A5B34 /* AGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65CF29AEFF3C005A5B34 /* AGTextField.swift */; };
 		853B65D429AF0935005A5B34 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B65D329AF0935005A5B34 /* UITextField.swift */; };
@@ -85,7 +84,6 @@
 		853B65BF29ADE714005A5B34 /* Snapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapkit.swift; sourceTree = "<group>"; };
 		853B65C129ADFF65005A5B34 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		853B65C329AE016D005A5B34 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
-		853B65C529AE029C005A5B34 /* Coodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coodinator.swift; sourceTree = "<group>"; };
 		853B65CD29AE4C86005A5B34 /* AGTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTopBar.swift; sourceTree = "<group>"; };
 		853B65CF29AEFF3C005A5B34 /* AGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTextField.swift; sourceTree = "<group>"; };
 		853B65D329AF0935005A5B34 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 				853B65BD29ADE50A005A5B34 /* UILabel.swift */,
 				853B65BF29ADE714005A5B34 /* Snapkit.swift */,
 				853B65C129ADFF65005A5B34 /* UIButton.swift */,
-				853B65C529AE029C005A5B34 /* Coodinator.swift */,
 				853B65D329AF0935005A5B34 /* UITextField.swift */,
 				85D7B7B32A3787BA007BA6FE /* UIImageView.swift */,
 			);
@@ -486,7 +483,6 @@
 				85E73AAA2982DC1F008B0148 /* RootViewController.swift in Sources */,
 				85D7B7B42A3787BA007BA6FE /* UIImageView.swift in Sources */,
 				85465E1229D9EDA800B39DEA /* FirebaseStorageService.swift in Sources */,
-				853B65C629AE029C005A5B34 /* Coodinator.swift in Sources */,
 				853B65E129AF6AC7005A5B34 /* SignupViewController.swift in Sources */,
 				853C800029AB973800A889A9 /* AGButton.swift in Sources */,
 				853B65D629AF0BD1005A5B34 /* AGDivideLine.swift in Sources */,

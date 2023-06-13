@@ -6,6 +6,7 @@ import RxGesture
 
 protocol SignupDetailViewControllerDelegate {
     func dismiss()
+    /// 회원가입 완료 버튼 클릭 시 호출
     func confirmSignup()
 }
 

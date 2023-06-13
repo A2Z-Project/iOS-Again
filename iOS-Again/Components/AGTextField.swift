@@ -1,12 +1,21 @@
 import UIKit
 import SnapKit
 
+/// Again Component: TextField Type
 enum AGTextFieldType {
+    /// Plain
     case none
+    
+    /// Email Form
     case emailAddress
+    
+    /// Password Form
     case password
 }
 
+/// Again Component: TextField
+/// - Author: 김민규
+/// - Date: 2023/03/02
 class AGTextField: UIStackView {
     var textField: UITextField = {
         let tf = UITextField()
@@ -21,6 +30,13 @@ class AGTextField: UIStackView {
         return tf
     }()
     
+    /// Again Component: TextField Initializer
+    /// - Parameters:
+    ///     - type: TextField Type
+    ///     - title: TextField Title(Description)
+    ///     - placeholder: TextField Placeholder
+    /// - Author: 김민규
+    /// - Date: 2023/03/02
     required init(_ type: AGTextFieldType = .none, title: String, placeholder: String) {
         super.init(frame: .zero)
         
@@ -41,6 +57,7 @@ class AGTextField: UIStackView {
             make.height.equalTo(50)
         }
         
+        /// TextField Type에 따라 키보드 표시 배열과 TextField 표시 텍스트을 분기
         switch type {
         case .emailAddress:
             textField.keyboardType = .emailAddress

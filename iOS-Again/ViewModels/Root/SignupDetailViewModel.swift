@@ -18,6 +18,7 @@ class SignupDetailViewModel: NSObject {
         self.userRegisterationModel = userRegisterationModel
     }
     
+    /// 프로필 사진 변경
     func tappedProfileImageView() {
         let imagePicker = UIImagePickerController()
         

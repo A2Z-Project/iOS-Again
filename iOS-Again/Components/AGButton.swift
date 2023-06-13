@@ -1,22 +1,34 @@
 import UIKit
 import SnapKit
 
+/// Again Button State
 enum AGButtonState {
     case primary
     case pressed
 }
 
+/// Again SNS Button Type
 enum AGSnsAccountButtonType: String {
     case Google
     case Apple
 }
 
+/// Again SNS Button Usage Type
 enum AGSnsAccountButtonUsageType: String {
     case signup = "가입"
     case signin = "로그인"
 }
 
+/// Again Primary Button
+/// - Author: 김민규
+/// - Date: 2023/03/02
 class AGButton: UIButton {
+    
+    /// Again Primary Button Initializer
+    /// - Parameters:
+    ///     - title: Button Text
+    /// - Author: 김민규
+    /// - Date: 2023/03/02
     required init(title: String) {
         super.init(frame: .zero)
         
@@ -38,7 +50,17 @@ class AGButton: UIButton {
     }
 }
 
+/// Again SNS Login/Signup Button
+/// - Author: 김민규
+/// - Date: 2023/03/02
 class AGSnsAccountButton: UIButton {
+    
+    /// Again SNS Login/Signup Button Initializer
+    /// - Parameters:
+    ///     - type: SNS Button type
+    ///     - usageType: Login/Signup type
+    /// - Author: 김민규
+    /// - Date: 2023/03/02
     required init(_ type: AGSnsAccountButtonType, usageType: AGSnsAccountButtonUsageType) {
         super.init(frame: .zero)
         
@@ -55,6 +77,7 @@ class AGSnsAccountButton: UIButton {
         conf.imagePadding = 10
         conf.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         
+        /// type에 따라 표시 로고, 텍스트 분기
         switch type {
         case .Apple:
             conf.baseBackgroundColor = .black

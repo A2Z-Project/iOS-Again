@@ -16,8 +16,6 @@ class ProfileViewModel {
         let realm = RealmStorageService()
         
         self.userData = realm.getUser()!
-        
-        print(self.userData)
     }
     
 }

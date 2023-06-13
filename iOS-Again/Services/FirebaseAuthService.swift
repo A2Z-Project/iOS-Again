@@ -15,6 +15,9 @@ protocol FirebaseAuthServiceDelegate {
     func didSNSSignup(_ result: AuthDataResult)
 }
 
+/// Firebase Authentication을 사용하여 Social 사용자를 인증
+/// - Author: 김민규
+/// - Date: 2023/04/02
 class FirebaseAuthService: NSObject {
     fileprivate var currentNonce: String?
     private weak var viewController: UIViewController?
@@ -25,6 +28,13 @@ class FirebaseAuthService: NSObject {
         self.viewController = viewController
     }
     
+    /// 이메일을 통한 인증
+    /// - Parameters:
+    ///     - email: 이메일 주소
+    ///     - password: 패스워드 rawString
+    ///     - completion: 인증 절차 진행 후 실행 Closure
+    /// - Author: 김민규
+    /// - Date: 2023/04/02
     func emailSignup(email: String, password: String, completion: @escaping (AuthDataResult?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { _, error in
             guard error == nil else {
@@ -43,14 +53,15 @@ class FirebaseAuthService: NSObject {
         }
     }
     
+    /// Social: Google을 통한 인증
+    /// - Author: 김민규
+    /// - Date: 2023/04/02
     func googleSignup() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
-        // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
-        // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(withPresenting: viewController!) { result, error in
             guard error == nil else { return }
             
@@ -66,17 +77,19 @@ class FirebaseAuthService: NSObject {
                 // 사용자 등록 후에 처리할 코드
                 self.delegate?.didSNSSignup(result!)
             }
-            // If sign in succeeded, display the app's main content View.
         }
     }
-    
+
+    /// Social: Apple을 통한 인증
+    /// - Author: 김민규
+    /// - Date: 2023/04/02
     @available(iOS 13.0, *)
     func appleSignup() {
         let nonce = randomNonceString()
         currentNonce = nonce
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
+        request.requestedScopes = [.fullName, .email]   // 사용자의 이름, 이메일 주소를 요청
         request.nonce = sha256(nonce)
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
@@ -92,7 +105,6 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate, ASAuthorizatio
         return viewController!.view.window!
     }
     
-    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -106,27 +118,22 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate, ASAuthorizatio
                 print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
-            // Initialize a Firebase credential.
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
-            // Sign in with Firebase.
+            
             Auth.auth().signIn(with: credential) { (result, error) in
                 if (error != nil) {
-                    // Error. If error.code == .MissingOrInvalidNonce, make sure
-                    // you're sending the SHA256-hashed nonce as a hex string with
-                    // your request to Apple.
                     print(error!.localizedDescription)
                     return
                 }
-                // User is signed in to Firebase with Apple.
+                
                 self.delegate?.didSNSSignup(result!)
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
         print("Sign in with Apple errored: \(error)")
     }
 }
